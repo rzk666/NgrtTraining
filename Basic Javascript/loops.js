@@ -81,14 +81,21 @@ const funk3 = (myArray, number) => {
 
 }
 
+// כתוב תוכנית שקולטת מהמשתמש שני מספרים
+// וקולטת ממנו קלט לתוך מערך
+// הקליטה לתוך המערך תפסיק כשהשמשתמש יכניס -1
 
+const num = [];
+let x = parseInt(prompt("Enter a number"));
 
-
-
-
-
-let i = 0;
-while(i < myArray.length()) {
-    console.log(myArray[i]);
-    i = i + 1;
+while(x !== -1) {
+num.push(x);
+x = parseInt(prompt("Enter a number"));
 }
+console.log(num);
+
+
+
+// כתוב תוכנית שקולטת מהמשתמש מספרים ומכניסה אותם למערך 
+// עד שהמשתמש מכניס -1 
+// לאחר מכן התוכנית תקלוט שתי מספרים נוספים 
