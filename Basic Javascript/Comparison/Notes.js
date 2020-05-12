@@ -1,7 +1,7 @@
 // What will the following print?
 // *** False * False = TRUE
 // *** True 8 False = FALSE
-// *** undefined/ 0 / `   ` / 
+// *** undefined/ 0 / `   ` / == false
 
 console.log(!undefined) === true
 console.log(!0) === true
