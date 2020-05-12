@@ -29,3 +29,38 @@ const myFunc2 = (myArray) => {
     }
 }
 
+// כתוב פונקציה שמקבלת מערך ומדפיסה את כל האיברים שנמצאים במקומות זוגיים במערך
+
+const funk = (myArray) => {
+    for (i = 0; i < myArray.length; i = i + 2) {
+        console.log(myArray[i]);
+    }
+}
+
+
+// כתוב פונקציה שמקבלת מערך ומוציאה רק את המספרים הזוגיים במערך
+const funk = (myArray) => {
+    for (let i = 0; i < myArray.length; i++) {
+        if(myArray[i] % 2 === 0) {
+            console.log(myArray[i]); 
+        }
+        
+    }
+}
+
+// כתוב פונקציה שמקבלת מערך ועושה:
+// אם האיבר הנוכחי הוא לא מחרוזת תדפיס "Not a string"
+// אם האיבר הנוכחי הוא כן מחרוזת היא בודקת האם עד החצי של המחרוזת קיימת התו איי אם כן היא מדפיסה היט אם לא היא מדפיסה פולס
+
+const funk2 = (myArray) => {
+    for (i = 0; i < myArray.length; i++) {
+        if(typeof myArray[i] !== "string") {
+            console.log("Not a string");
+        } else if(myArray[i].includes("a")) {
+            console.log("HIT");
+            
+        } else {
+            console.log("false");
+        }
+    }
+}
