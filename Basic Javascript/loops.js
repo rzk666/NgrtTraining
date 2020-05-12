@@ -64,3 +64,31 @@ const funk2 = (myArray) => {
         }
     }
 }
+
+// תכתוב פונקציה שמקבלת מערך אם היא מוצאת בו את המספר 15 באותו רגע היא מדפיסה לי "זלדים" ומפסיקה לרוץ.
+
+const funk3 = (myArray, number) => {
+    let i = 0;
+    let wasFound = false;
+    while(i < myArray.length && !wasFound) {
+        if(myArray[i] === number){
+            console.log("ZLADIM");
+            wasFound = true
+        } 
+            i = i + 1;
+        
+    } 
+
+}
+
+
+
+
+
+
+
+let i = 0;
+while(i < myArray.length()) {
+    console.log(myArray[i]);
+    i = i + 1;
+}
