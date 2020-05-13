@@ -160,6 +160,151 @@ for (i = 0; i < numCounter.length; i++) {
 
 
 
+// תדפיס את כל המספרים שמתחלקים ב3 בלי שארית
 
-// כתוב תוכנית שקולטת מספרים למערך עד שהמשתמש מכניס -1
-// 
+const num = (myArray) => {
+    for (i = 0; i < myArray.length; i++) {
+        if(myArray[i] % 3 === 0) {
+            console.log(myArray[i]);
+        }
+    }
+}
+
+
+
+
+// תדפיס פירמדה 1/3/5/7/9
+
+let kochav = "*";
+let space = " ";
+
+    
+for (i = 4; i > -1; i = i - 1) {
+        console.log(" " + i)
+    }
+
+
+
+
+    // תוכנית שקולטת 100 מספרים ומחזירה את הסכום שלהם
+    
+    let sum = 0;
+    for (i = 0; i < 5; i++){
+        let x = parseInt(prompt("Enter number"));
+        sum = sum + x;
+    }
+    console.log(sum);
+        
+        
+
+// קלוט מספר וחשב כמה שנים חודשים וימים יש במספר
+
+
+let x = parseInt(prompt("enter Number"));
+let year = x / 365;
+let month = x / 12;
+let days = x;
+
+console.log(`in the number you insert you have ${year} years, ${month} monthes, and ${days} days`);
+
+// קלוט מחרוזות מהמשתמש לתוך מערך עד אשר יוזן הקלט "זין", הדפס את כל המחרוזות במערך שמתחילות ב "זלד"
+// **** לא מצליח להדפיס את המילים שמתחילות בזלד ******
+
+const strings = [];
+let string = prompt("enter a string");
+
+while(string !== "zain") {
+    strings.push(string);
+    string = prompt("enter a string")
+}
+
+for (i = 0; i < strings.length; i++) {
+    if(strings[i].startsWith ==="zld") {
+        console.log(strings[i]);
+    }
+}
+
+
+
+
+ 
+let strings = ["zldhello"];
+if(strings[0].startswith ==="zld") {
+        console.log(strings[0]);
+}
+
+
+
+
+
+
+// קלוט מחרוזת ותו ביקורת מהמשתמש. הדפס את כמות הפעמים בה מופיעה ספרת הביקורת במחרוזת
+
+let x = prompt("enter a string");
+let y = prompt("enter a letter");
+let count = 0 
+
+for (i = 0; i < x.length; i++) {
+
+    if(x.charAt(i) === y) {
+        count = count + 1;
+    }
+}
+
+    console.log(count);
+
+
+
+    // קלוט מספרים מהמשתמש והדפס עבור כל מספר האם הוא פולינדרום*. הקלט יעצר כשהמשתמש יזין "-1"
+    
+    let num = [];
+    let numbers = parseInt(prompt("Enter a number"));
+
+    while(numbers !== -1) {
+        num.push(numbers);
+        numbers = parseInt(prompt("enter a number"));
+    }
+
+
+    for(i = 0; i < num.length; i++) {
+
+        if((num[i] / 100) === (num[i] % 10)) {        
+        console.log(num[i]);
+        }
+    }
+
+
+    // כתוב פונקציה שמקבלת מערך ומחרוזת
+    // הפונקציה תיצור מערך חדש שיכלול רק את המחרוזות מהמערך המקורי שמכילות את ערך המחרוזת הנקלטת
+
+
+    
+    const myFunc = (array, string) => {
+        let newArray = [];
+
+        for(i = 0; i < array.length; i++) {
+            if(array[i] === string) {
+                newArray.push(string)
+            } 
+        }
+        return newArray;
+    }
+                
+            
+
+    
+        
+
+
+    //כתוב פונקציה הקולטת מספר ומחזירה את מספר הספרות שלו
+    // 145 = 3
+
+    const number = (num) => {
+        let length = num.toString().length;
+        return console.log(length)
+    }
+
+
+        
+
+
