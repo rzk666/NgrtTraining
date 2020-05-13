@@ -219,11 +219,13 @@ while(string !== "zain") {
 }
 
 for (i = 0; i < strings.length; i++) {
-    if(strings[i].startsWith ==="zld") {
+    if(strings[i].startsWith("zld")) {
         console.log(strings[i]);
     }
 }
 
+const x = "test";
+const y = x.startsWith("t");
 
 
 
