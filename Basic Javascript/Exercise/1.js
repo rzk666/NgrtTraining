@@ -121,3 +121,19 @@ console.log(weekArray);
 // כתוב פונקציה שמקבלת מחרוזת.
 // הפונקציה תחזיר את המחרוזת ללא מספרים
 // Example: string = "13he5ll3o" | myFunc(string) = "hello" |||| string = "test" | myFunc(string) = "test" 
+
+
+
+const myFunc = (string) => {
+    let newString = string.split(``);
+    
+    for (let i = 0; i < newString.length; i++) {
+
+        if (typeof newString[i] === "number") {
+            newString.splice(i , 1);
+        }
+    }
+    return newString =  newString.join(``); 
+}
+        
+
