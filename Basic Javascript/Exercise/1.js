@@ -114,7 +114,7 @@ tomorrow.setDate(tomorrow.getDate() + i)
 
 let curr = new Date 
 let first = curr.getDate() - curr.getDay() + i 
-
+}
 
 
 
