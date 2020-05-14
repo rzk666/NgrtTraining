@@ -224,8 +224,6 @@ for (i = 0; i < strings.length; i++) {
     }
 }
 
-const x = "test";
-const y = x.startsWith("t");
 
 
 
@@ -285,7 +283,7 @@ for (i = 0; i < x.length; i++) {
         let newArray = [];
 
         for(i = 0; i < array.length; i++) {
-            if(array[i] === string) {
+            if(array[i].includes(string)) {
                 newArray.push(string)
             } 
         }
@@ -301,12 +299,38 @@ for (i = 0; i < x.length; i++) {
     //כתוב פונקציה הקולטת מספר ומחזירה את מספר הספרות שלו
     // 145 = 3
 
+
+const digits = (num) => {
+    let count = 0
+
+    while (num !== 0) {
+        num / 10; 
+        count = count + 1;
+    }
+}
+
+    console.log(`the number you inserted have ${count} digits`);
+
+
+
+
+
+
+   
+   
+   
     const number = (num) => {
         let length = num.toString().length;
-        return console.log(length)
+        console.log(length)
     }
 
 
+
         
+
+const x = (num) => {
+    let lastDig = num / 10
+    console.log(lastDig);
+}
 
 
