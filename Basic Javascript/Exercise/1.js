@@ -106,15 +106,15 @@ console.log(weekArray);
 
 
 
-const today = new Date()
-const tomorrow = new Date(today)
-for (i = 1; i < 8; i++) {
-console.log(tomorrow)
-tomorrow.setDate(tomorrow.getDate() + i)
+//const today = new Date()
+//const tomorrow = new Date(today)
+//for (i = 1; i < 8; i++) {
+//console.log(tomorrow)
+//tomorrow.setDate(tomorrow.getDate() + i)
 
-let curr = new Date 
-let first = curr.getDate() - curr.getDay() + i 
-}
+//let curr = new Date 
+//let first = curr.getDate() - curr.getDay() + i 
+//}
 
 
 

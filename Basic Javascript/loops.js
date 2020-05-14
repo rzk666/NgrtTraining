@@ -299,17 +299,15 @@ for (i = 0; i < x.length; i++) {
     //כתוב פונקציה הקולטת מספר ומחזירה את מספר הספרות שלו
     // 145 = 3
 
-
-const digits = (num) => {
+    const digits = (num) => {
     let count = 0
-
     while (num !== 0) {
         num / 10; 
         count = count + 1;
     }
+    console.log(`the number you inserted have ${count} digits`);
 }
 
-    console.log(`the number you inserted have ${count} digits`);
 
 
 
