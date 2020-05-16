@@ -14,6 +14,7 @@
 // דוגמא
 // string = "hhhhelllllooooo"
 // myFunc(string) should return "helo"
+// שהתוכנית תחזיר במידה והיא קיצצה כמה רצפים היו במקור ובנוסף
 
 const myFunc = (string) => {
     let newString = string.split(``);
@@ -30,6 +31,11 @@ const myFunc = (string) => {
     return newArray.join(``);
 }
 
+const myFunc = (string) => {
+
+
+}
+
 
 
 
@@ -44,38 +50,45 @@ const myFunc = (string) => {
 
 let num1 = parseInt(prompt("Enter first num"));
 let num2 = parseInt(prompt("Enter second num"));
-let action = prompt("Enter action")
-    
-switch (action) {
-    case "+":
-    action = "+";
-    break;
-
-    case "-":
-    action = "-";
-    break;
-
-    case "*":
-    action = "*";
-    break;
-
-    case "/":
-    action = "/";
-    break;
-
-    default:
-        console.log("This is not a mathematical action");
-}
-
+let action = prompt("Enter action");
+let sum;
 
 
     while (num1 !== 0 && num2 !== 0) {
-        let sum = eval(num1 + action + num2);
+
+        switch (action) {
+            case "+":
+            sum = num1 + num2;
+            break;
+        
+            case "-":
+            sum = num1 - num2;
+            break;
+        
+            case "*":
+            sum = num1 * num2;
+            break;
+        
+            case "/": if (num2 === 0) {
+                console.log("ERROR")
+            } else {
+                sum = num1 / num2 ;
+            }
+            break;
+        
+            case "%":
+            sum = num1 % num2 ;
+            break;
+        
+            default:
+            console.log("This is not a mathematical action");
+        }
+        
         console.log(sum);
 
-        let num1 = parseInt(prompt("Enter first num"));
-        let num2 = parseInt(prompt("Enter second num"));
-        let action = prompt("Enter action");
+         num1 = parseInt(prompt("Enter first num"));
+         num2 = parseInt(prompt("Enter second num"));
+         action = prompt("Enter action");
 
     }
 
