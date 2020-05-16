@@ -70,7 +70,7 @@ let sum;
             break;
         
             case "/": if (num2 === 0) {
-                console.log("ERROR")
+                sum = "ERROR" // console.log("ERROR")
             } else {
                 sum = num1 / num2 ;
             }
