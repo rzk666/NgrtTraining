@@ -10,16 +10,20 @@ const myFunc = (array) => {
 // Create a function which validates whether a bridge is safe to walk on (i.e. has no gaps in it to fall through).
 
 const isItSafe = (string) => {
-    let newString = string.split(``);
-    for(i = 0; i < newString.length; i++) {
-        if (newString[i] === " ") {
-            console.log("Not safe")
-
-        } else {
-
-            console.log("SAFE");
-        }
-    }
-
+    
+    for(i = 0; i < string.length; i++) {
+        if (string[i] === " ") {
+        return console.log("not safe");
+    }   
+    } 
+        return console.log("SAFE");
+        
+    
 }
+
+
+        
+            
+
+
  
