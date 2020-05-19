@@ -2,9 +2,9 @@
 
 // נתון האובייקט הבא:
 const validator = {
-    isValidMail = data => data.includes('@'),
-    isValidUserName = data => data.length > 0,
-    isValidPassword = data => data.length > 8,
+    isValidMail: data => data.includes('@'),
+    isValidUserName: data => data.length > 0,
+    isValidPassword: data => data.length > 8,
 }
 
 // כתוב תוכניות הקולטת מייל, שם משתמש, וסיסמא מהמשתמש.
