@@ -103,3 +103,7 @@ const totalSmallNumbers = myArray3.reduce((acc, x) => {
 // totleSmallNumbers = 4;
 
 const arraySum = myArray3.reduce((a, b) => a = a + b, 0); // arraySum = 70
+
+// Sort
+numbers.sort((a, b) => b - a); // big to small
+numbers.sort((a, b) => b - a); // small to big
