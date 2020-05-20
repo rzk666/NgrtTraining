@@ -104,25 +104,22 @@ const myFunc = (array) => {
 // פונקציה שעובדת אם יש מספרים כפולים
     const myFunc = (array) => {
         let arrayClone = [...array];
-        let emptyArray = [];
-        let counter = 0;
-    
+        let sortedArray = [];
     
         while (arrayClone.length !== 0) {
             let min = Math.min(...arrayClone);
-                arrayClone = arrayClone.filter(x => x !== min);
-                for(i = 0; i < array.length; i++) {
-                    if(array[i] === min) {
-                        emptyArray.push(min);                    
+                arrayClone = arrayClone.filter(x => {
+                    if(x !== min) {
+                        return true;
                     }
-                }
+                    sortedArray.push(min);
+                    return false;
+                });
+                // for(i = 0; i < array.length; i++) {
+                //     if(array[i] === min) {
+                //         emptyArray.push(min);                    
+                //     }
+                // }
             }
-            console.log(emptyArray);
+            console.log(sortedArray);
         }
-
-
-                    
-       
-
-
-
