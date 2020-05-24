@@ -4,6 +4,27 @@
 // Example:
 const myArray = [{ test:"david" }, { rozadin:"hagever" }, { for:"allah", dudu:"farok" }];
 
+const myFunc = (array) => {
+    let newObject = {};
+    
+    array.map(x => {
+        
+        const firstKey = Object.keys(x)[0];
+        if(firstKey) {
+            newObject[firstKey] = x[firstKey];
+            
+        }
+    })
+
+    return newObject  
+}
+       
+        
+     
+        
+     
+         
+           
 // Mega pyramid printer
 // Write a function that recives an array of objects. Each object will have the following structure:
 // { direction:"reverse", rows:5 }, where rows must be an integer & direction could be either "reverse" or "normal".
@@ -21,7 +42,52 @@ const pyramidArray = [{ direction:"reverse", rows: 3}, {direction:"normal", rows
 // *******
 //*********
 // ERR: Invalid direction
-// ERR: Invalid rows
+// ERR: Invalid rows 
+
+const myFunc = (pyramidArray) => {
+    
+
+    pyramidArray.map(x => {
+        let spacesNumber = x.rows - 1
+        let kochav = "*";
+        let space = "";
+        
+        if(x.direction !== "normal" && x.direction !== "reverse") {
+            console.log("ERR: Invalid direction"); 
+        } if(typeof x.rows !== "number") {
+            console.log("ERR: Invalid rows ");
+        }
+
+        if (x.direction === "normal") {
+            for(let a = 0; a < x.rows; a++) {
+                for(let i = 0; i < spacesNumber; i++) {
+                    space = space + " ";
+                }
+                    
+                    console.log(`${space}${kochav}`);
+                    kochav = kochav + "**"
+                    space = ""
+                    spacesNumber = spacesNumber - 1
+                }
+            } else if(x.direction === "reverse") {
+                for(let a = 0; a < x.rows; a++) {
+                    for(let i = 0; i < spacesNumber; i++) {
+                        
+                    }
+                }
+            }
+
+        })
+    }
+
+
+
+
+   
+    
+    
+
+
 
 // ESP -> Below is an example array the holds objects for each of the signed artists in the ESP rooster:
 const espArtistsRooster = [{
@@ -90,6 +156,36 @@ const espArtistsRooster = [{
 // Print all the artists from Israel
 // Print all the artists that own more then 2 ESP guitars
 // Print all the artists that have a custom model
+
+const espFunc = (array) => {
+    
+    array.map(x => {
+        let artistNames = [];
+        if(x.totalPurchasesAmount > 10000) {
+            artistNames.push(x.name);
+        }
+        console.log(...artistNames)
+        artistNames = [];
+
+        if(x.bands.length > 1) {
+            artistNames.push(x.name);
+        }
+        console.log(`artists that play in more than one band: ${artistNames}`);
+
+    })
+    
+        
+
+
+
+}
+
+
+
+
+
+
+
 // BONUS: Write a function that recives the rooster array, an artist id, and an object with updated data(could be any data, no need to check its ok), and updates the rooster.
 // * Notice the function does not return a new array, but actually updates (mutates) the array it recives.
 // ** Ofcourse its a big nono, but its just for practice
@@ -118,3 +214,25 @@ const espArtistsRooster = [{
         phone: '+4915125124'
     }
 }]
+
+
+//{ address: { state: "SHTRAZENPLATZ", city:"HITLERTOWN" }}
+
+
+const espUpdate = (array, id, updatedData) => {
+    const idToUpdate = id
+    array.map(x => {
+        const keyToUpdate = Object.keys(x);
+        const updatedDataKeys = Object.keys(updatedData);
+        if (x.id === id) {
+            for(i = 0; i < keyToUpdate.length; i++) {
+                if(keyToUpdate[i] === updatedDataKeys[0] ) {
+                    x[updatedDataKeys] = updatedData 
+                }
+
+            }
+            }
+        })
+        console.log(array)
+    }
+ 
