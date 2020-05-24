@@ -44,6 +44,7 @@ const pyramidArray = [{ direction:"reverse", rows: 3}, {direction:"normal", rows
 // ERR: Invalid direction
 // ERR: Invalid rows 
 
+
 const myFunc = (pyramidArray) => {
     
 
@@ -52,7 +53,10 @@ const myFunc = (pyramidArray) => {
         let kochav = "*";
         let space = "";
         
-        
+
+        // Faulted condition! Notice you put the rows check inside the direction check.
+        // If I'll insert a pyramid object that has a valid direction (reverse \ normal) and an invalid rows number
+        // The program will fail. Think how to write this properly. this isn't hard don't waste too much time on it.
         if(x.direction !== "normal" && x.direction !== "reverse") {
             console.log("ERR: Invalid direction"); 
         } if(typeof x.rows !== "number") {
@@ -283,6 +287,18 @@ const updateArtist = (artistsRooster, idToUpdate, updatedData) => {
 
 
 // כתוב פונקציה שקולטת 2 מספרים ומדפיסה את המכפלה המשותפת הכי קטנה שלהם
+// 75/100 - This works and its a great solution, but why using an array..? makes no sense.
+
+const RAZI_smallestMultiplier = (num1, num2) => {
+    let currentMultiplier = 1;
+    let currentMultiplication = num1 * multiplier;
+    
+    while (currentMultiplication % num2 !== 0) { // There's no need to use an index here, because eventualy this will allways happen so the loop won't be infinite
+        multiplier = multiplier + 1
+        currentMultiplication = num1 * multiplier;
+    }
+    console.log(currentMultiplication)
+}
 
 const smallestMultiplier = (num1, num2) => {
     let multiplier = 1;
@@ -300,15 +316,17 @@ const smallestMultiplier = (num1, num2) => {
 
 
 // כתוב פונקציה שקולטת 2 מספרים ומדפיסה את המחלק הכי גדול שלהם
+// 80/100 Looking good
 
 const biggestDivider = (num1, num2) => {
     
-    let divider = 1;
-    let dividerSum = 0
+    let divider = 1; // Why using this divider? simply make the 'i' in the for loop start from 1 and the term to be i <= biggestNum
+    let dividerSum = 0 // biggestCommonDivider \ biggestDivider would be a much better name then dividerSum. Pay attention to naming, its important!
     let biggestNum = Math.max(num1,num2)
     
     for(i = 0; i < biggestNum; i++) {
-        if(Number.isInteger(num1 / divider) === true && Number.isInteger(num2 / divider) === true ) {
+        if(Number.isInteger(num1 / divider) === true && Number.isInteger(num2 / divider) === true ) { // Remember, using === true has no meaning...
+        // Should be written like this: if(Number.isInteger(num1 / divider) && Number.isIntegar(num2 / divider)) {...}
             dividerSum = divider
         }
         divider = divider + 1;
