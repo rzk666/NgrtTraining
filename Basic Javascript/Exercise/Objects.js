@@ -16,7 +16,7 @@ const myFunc = (array) => {
         }
     })
 
-    return newObject  
+    return newObject
 }
        
         
@@ -157,27 +157,21 @@ const espArtistsRooster = [{
 // Print all the artists that own more then 2 ESP guitars
 // Print all the artists that have a custom model
 
-const espFunc = (array) => {
-    
-    array.map(x => {
-        let artistNames = [];
-        if(x.totalPurchasesAmount > 10000) {
-            artistNames.push(x.name);
+const espFunc = (artistRooster) => {
+    const bigSpenders = []; // This array reffers to the first task.
+    const hasMultipleBands = [];
+    artistRooster.map(currentArtist => {
+        const { totalPurchasesAmount, name, bands } = currentArtist;
+        // Handling more then 10,000 spenders
+        if (totalPurchasesAmount > 10000) {
+            spendersArray.push(name);
         }
-        console.log(...artistNames)
-        artistNames = [];
-
-        if(x.bands.length > 1) {
-            artistNames.push(x.name);
+        // Handling members with multiple bands
+        if (bands.length > 1) {
+            hasMultipleBands.push(name);
         }
-        console.log(`artists that play in more than one band: ${artistNames}`);
-
-    })
-    
         
-
-
-
+    })
 }
 
 
@@ -229,10 +223,20 @@ const espUpdate = (array, id, updatedData) => {
                 if(keyToUpdate[i] === updatedDataKeys[0] ) {
                     x[updatedDataKeys] = updatedData 
                 }
-
             }
             }
         })
         console.log(array)
-    }
- 
+}
+
+const updateArtist = (artistsRooster, idToUpdate, updatedData) => {
+    artistsRooster.map(currentArtist => {
+        // Notice how it looks better and makes more sense with proper naming
+        if (idToUpdate === currentArtist.id) {
+            // Using decustruction in this order will make sure we get all the
+            // keys\values of the current artist, and then overwrite whatever we recived in the updatedData object
+            currentArtist = {...currentArtist, ...updatedData};
+        }
+    })
+    console.log(artistsRooster);
+}
