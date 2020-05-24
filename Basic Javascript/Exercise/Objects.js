@@ -52,6 +52,7 @@ const myFunc = (pyramidArray) => {
         let kochav = "*";
         let space = "";
         
+        
         if(x.direction !== "normal" && x.direction !== "reverse") {
             console.log("ERR: Invalid direction"); 
         } if(typeof x.rows !== "number") {
@@ -63,22 +64,29 @@ const myFunc = (pyramidArray) => {
                 for(let i = 0; i < spacesNumber; i++) {
                     space = space + " ";
                 }
+                console.log(`${space}${kochav}`);
+                kochav = kochav + "**"
+                space = ""
+                spacesNumber = spacesNumber - 1
+            }
                     
-                    console.log(`${space}${kochav}`);
-                    kochav = kochav + "**"
-                    space = ""
-                    spacesNumber = spacesNumber - 1
-                }
             } else if(x.direction === "reverse") {
                 for(let a = 0; a < x.rows; a++) {
-                    for(let i = 0; i < spacesNumber; i++) {
+                    for(let i = 0; i < x.rows - 1; i++) {
+                        kochav = kochav + "**"
                         
                     }
+                    console.log(`${space}${kochav}`);
+                    space = space + " "
+                    kochav = "*"
                 }
             }
-
         })
     }
+                    
+                    
+                        
+
 
 
 
@@ -160,18 +168,46 @@ const espArtistsRooster = [{
 const espFunc = (artistRooster) => {
     const bigSpenders = []; // This array reffers to the first task.
     const hasMultipleBands = [];
+    const fullyEndorsedArtists = [];
+    const artistsFromIsrael = [];
+    const twoGuitarsOrMore =[];
+    const haveCustomModel = [];
+
     artistRooster.map(currentArtist => {
-        const { totalPurchasesAmount, name, bands } = currentArtist;
+        const { totalPurchasesAmount, name, bands, endorsmentType, address, ownedModels, customModels } = currentArtist;
+        const { country } = address;
         // Handling more then 10,000 spenders
         if (totalPurchasesAmount > 10000) {
-            spendersArray.push(name);
+           bigSpenders.push(name);
         }
         // Handling members with multiple bands
         if (bands.length > 1) {
             hasMultipleBands.push(name);
         }
+
+        if (endorsmentType === "Fully Endorsed" || endorsmentType === "Fully endorsed" ) {
+            fullyEndorsedArtists.push(name);
+        }
+
+        if (country === "Israel") {
+            artistsFromIsrael.push(name);
+        }
+
+        if (ownedModels.length > 1) {
+            twoGuitarsOrMore.push(name);
+        }
+
+        if (customModels.length > 0) {
+            haveCustomModel.push(name);
+        }
         
     })
+        console.log(`Artists that spent more then 10000: ${bigSpenders}`);
+        console.log(`artists that play in more then one band: ${hasMultipleBands}`);
+        console.log(`artists that are fully endorsed: ${fullyEndorsedArtists}`);
+        console.log(`artists that live in Israel: ${artistsFromIsrael}`);
+        console.log(`artists that have two guitars or more: ${twoGuitarsOrMore}`);
+        console.log(`artists that have custom model: ${haveCustomModel}`);
 }
 
 
@@ -240,3 +276,50 @@ const updateArtist = (artistsRooster, idToUpdate, updatedData) => {
     })
     console.log(artistsRooster);
 }
+
+
+
+
+
+
+// כתוב פונקציה שקולטת 2 מספרים ומדפיסה את המכפלה המשותפת הכי קטנה שלהם
+
+const smallestMultiplier = (num1, num2) => {
+    let multiplier = 1;
+    let numSum = [num1 * multiplier];
+    let i = 0;
+    
+    while (numSum[i] % num2 !== 0) {
+
+        multiplier = multiplier + 1
+        numSum.push(num1 * multiplier);
+        i = i + 1
+    }
+    console.log(numSum[i])
+}
+
+
+// כתוב פונקציה שקולטת 2 מספרים ומדפיסה את המחלק הכי גדול שלהם
+
+const biggestDivider = (num1, num2) => {
+    
+    let divider = 1;
+    let dividerSum = 0
+    let biggestNum = Math.max(num1,num2)
+    
+    for(i = 0; i < biggestNum; i++) {
+        if(Number.isInteger(num1 / divider) === true && Number.isInteger(num2 / divider) === true ) {
+            dividerSum = divider
+        }
+        divider = divider + 1;
+    }
+
+    console.log(dividerSum);
+}  
+
+
+
+
+ 
+
+
