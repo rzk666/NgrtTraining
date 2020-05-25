@@ -78,7 +78,6 @@ const myFunc = (pyramidArray) => {
                 for(let a = 0; a < x.rows; a++) {
                     for(let i = 0; i < x.rows - 1; i++) {
                         kochav = kochav + "**"
-                        
                     }
                     console.log(`${space}${kochav}`);
                     space = space + " "
