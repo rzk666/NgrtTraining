@@ -1,3 +1,9 @@
+.tittle_container{
+    display: flex;
+    justify-content: center;
+}
+
+
 .free{
     color:black;
     font-size: 40px;
@@ -22,33 +28,25 @@
 }
 
 .flag {
-    width:200px;
-    
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-left: 10px;
-    background-color: purple;
-    display: inline-block;
-    
+    height:100px;
+    width:100px;
     
 }
 
 .misgad{
-    width:200px;
-     
-    margin-top: 20px;
-    display: inline-block;
-    background-color: purple;
+    width:100px; 
+    height:100px;
 }
 
-.image{
-    display: inline-block;
-    width:310px;
-    height: 209px; 
+.image{   
+    box-sizing: border-box;
+    padding:10px;
     background-color: purple;
     transition: 0.35s ease-in;
-    position: relative;
+    display: flex;
     margin-right: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .image:hover{
@@ -57,11 +55,14 @@
 }
 
 .img_container{
-    display: inline-block;  
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
 }
 
 .freedom{
     color:salmon;
     font-size: 150px;
+    text-align: center;
     
 }
