@@ -1,0 +1,67 @@
+.free{
+    color:black;
+    font-size: 40px;
+    
+}
+
+.pal{
+    color:green;
+    font-size: 40px;
+}
+
+.estine {
+    color: red;
+    font-size: 40px;
+}
+
+.free_palestine{
+    border: 2px dotted blue;
+    display: inline-block;
+    
+    
+}
+
+.flag {
+    width:200px;
+    
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color: purple;
+    display: inline-block;
+    
+    
+}
+
+.misgad{
+    width:200px;
+     
+    margin-top: 20px;
+    display: inline-block;
+    background-color: purple;
+}
+
+.image{
+    display: inline-block;
+    width:310px;
+    height: 209px; 
+    background-color: purple;
+    transition: 0.35s ease-in;
+    position: relative;
+    margin-right: 20px;
+}
+
+.image:hover{
+    background-color: orange;
+    cursor: pointer;
+}
+
+.img_container{
+    display: inline-block;  
+}
+
+.freedom{
+    color:salmon;
+    font-size: 150px;
+    
+}
