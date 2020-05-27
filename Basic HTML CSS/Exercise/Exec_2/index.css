@@ -49,7 +49,7 @@ body{
 }
 
 .main_site_container{
-    height: 849px;
+   
     
     display: flex;
     box-sizing: border-box;
@@ -58,6 +58,7 @@ body{
     background-color: lightgray;
     justify-content: space-between;
     overflow: auto;
+    height: 100%;
 
 }
 
@@ -220,4 +221,12 @@ border-bottom: 3px solid black;
 align-items: center;
 justify-content: center;
 text-align: center;
+}
+
+.main_wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
 }
