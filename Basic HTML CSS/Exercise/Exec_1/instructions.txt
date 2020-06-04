@@ -1,0 +1,12 @@
+בנה אתר שתי דפים
+first page : homepage with the title Home page.
+inside: link in color red, font size: 20, text: free palestine that will direct you to the page palestine
+
+second page: palestine
+title: palestine
+text: font size: 40, text: FREE PALESTINE, FREE - black, PAL - GREEN, rest of the word - RED.
+border: 2px dotted color: blue
+under the text should be a flag of palestine.
+right next to it it misgad el aqtza with margin 20px
+background: purple with 10 px from each direction
+when hover with the mouse it should change to pointer and the background should swithc to orange nicely.
