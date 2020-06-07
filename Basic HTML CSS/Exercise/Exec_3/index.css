@@ -1,12 +1,3 @@
-[class*="square"] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75em;
-    font-weight: bold;
-    color: black;
-}
-
 html{
     height:100%;
     width:100%;
@@ -80,9 +71,9 @@ body{
     margin-left: auto;
 }
     
-.zladim {
-    background-color: red;
-}
+    
+    
+    
 
 .second_row_column_one{
     height: 185px;
@@ -322,4 +313,12 @@ body{
     margin-left: auto;
     
     
+} 
+
+span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 13px;
 }
