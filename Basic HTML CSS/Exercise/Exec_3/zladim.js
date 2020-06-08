@@ -47,7 +47,7 @@ squares.forEach(x => {
 })
 
 
-
+// make the numbers appear on the squers from the smallest to biggest in order. from top to bottom from right to left.
 
 let squares = document.querySelectorAll("span");
 let numArray = [];
@@ -75,16 +75,50 @@ let numArray = [];
     })
        
      
-    
-    squares.forEach(x => {
-        x.textContent = smallestNum;
-        numArray.shift();
-        smallestNum = Math.min(...numArray);
-    })
+    //squares.forEach(x => {
+        //x.textContent = smallestNum;
+       // numArray.shift();
+        //smallestNum = Math.min(...numArray);
+    //})
 
 
+// 1 - 10: RED
+// 11 - 20: BLUE
+// 21 - 30: YELLOW
+// 31 - 40: GREY
+// 41 - 50: WHITE
+// 51 - 60: GREEN
+// 61 - 70: PINK
+// 71 - 80: TCHELET
+// 81 - 90: ORANGE
+// 91 - 99: PURPLE
 
 
+let squares = document.querySelectorAll("span");
+squares.forEach(x => {
+    if(x.textContent < 11) {
+        x.style.backgroundColor = "red";
+    } else if(x.textContent > 10 && x.textContent < 21) {
+        x.style.backgroundColor = "blue";
+    } else if(x.textContent > 20 && x.textContent < 31) {
+        x.style.backgroundColor = "yellow";
+    } else if(x.textContent > 30 && x.textContent < 41) {
+        x.style.backgroundColor = "grey";
+    } else if(x.textContent > 40 && x.textContent < 51) {
+        x.style.backgroundColor = "white";
+    } else if(x.textContent > 50 && x.textContent < 61) {
+        x.style.backgroundColor = "green";
+    } else if(x.textContent > 60 && x.textContent < 71) {
+        x.style.backgroundColor= "pink";
+    } else if(x.textContent > 70 && x.textContent < 81) {
+        x.style.backgroundColor = "lightblue";
+    } else if(x.textContent > 80 && x.textContent < 91) {
+        x.style.backgroundColor = "orange"
+    } else {
+        x.style.backgroundColor = "purple";
+    }
+
+})
 
 
 
