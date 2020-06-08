@@ -54,6 +54,19 @@ body{
     margin-left: 82px;
 }
 
+.square_one_first_active{
+height: 250px;
+width: 250px;
+border: 1px solid #ff9861;
+background-color: #222d3f;
+display: flex;
+box-sizing: border-box;
+position: fixed;
+right: 120px;
+margin-left: 82px;
+transition: ease-in 1s;
+}
+
 .square_two_first{
     height: 50px;
     width: 50px;

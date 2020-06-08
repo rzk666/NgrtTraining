@@ -8,7 +8,7 @@
     <div class="site_container">
             <div class="rows_container">
                 <div class= "first_row_container">
-                    <span class="square_one_first first_row">99</span>
+                    <span class="square_one_first first_row" onclick="myFunction()">99</span>
                     <span class="square_two_first first_row">12</span>
                 </div>
                 <div class="second_row_container">
@@ -53,9 +53,15 @@
                 </div>
             </div>
     </div>
+    
+
     <script type="text/javascript">
         const secondCol = document.querySelector('.second_row_column_two');
-        
+        function myFunction() {
+  document.querySelector(".square_one_first").classList = "square_one_first_active"
+}
+
+
     </script>
 </body>
 </html>
