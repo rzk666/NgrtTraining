@@ -67,7 +67,7 @@ body{
     height: 325px;
     display: flex;
     box-sizing: border-box;
-    background-color: royalblue;
+    
     margin-bottom: 80px;
     object-fit: cover;
     
@@ -129,6 +129,7 @@ body{
     right: 10px;
     display: flex;
     border-radius: 25px;
+    cursor: pointer;
     
     
 }

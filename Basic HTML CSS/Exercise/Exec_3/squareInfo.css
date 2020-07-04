@@ -1,0 +1,71 @@
+html{
+    height:100%;
+    width:100%;
+}
+    
+
+body{
+    margin:0;
+    height:100%;
+    width:100%;
+}
+
+.site_container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    background-color: #222d3f;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+    
+.info_container{
+    height: 250px;
+    width: 250px;
+    background-color: #ff9861;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+
+
+.go_back_button{
+    margin-top: 50px;
+}
+
+
+.height_info{
+    display: flex;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+
+}
+
+.width_info{
+    display: flex;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.class_info{
+    display: flex;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.number_hide{
+    display: none;
+}
+    
+.number_active{
+    display: flex;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-weight: 600; 
+}
