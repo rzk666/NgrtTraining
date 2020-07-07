@@ -13,8 +13,9 @@ body{
 
 .header_container{
     display: flex;
-    height:70px;
-    background-color: rgb(197, 0, 0);
+    height:90px;
+    width: 100%;
+    
     align-items: center;
     padding: 10px 10px;
     color: white;
@@ -59,6 +60,7 @@ body{
     justify-content: space-between;
     overflow: auto;
     height: 100%;
+    flex-direction: column;
 
 }
 
@@ -103,11 +105,13 @@ body{
 .footer{
     
     height:50px;
+    width: 100%;
     background-color: orchid;
     display: flex;
     box-sizing: border-box;
     padding: 10px 10px;
     align-items: center;
+    position: fixed;
     
 }
 
@@ -117,7 +121,7 @@ body{
     box-sizing: border-box;
     width: 300px;
     
-    color: black;
+    color: white;
 }
 
 .whatsapp_icon{
@@ -157,13 +161,13 @@ body{
 }
 
 .main_news_text_header{
-font-size: 30px;
+font-size: 25px;
 font-weight: 900;
 margin-bottom: 10px;
 }
 
 .main_news_text_quick_info{
-    font-size: 20px;
+    font-size: 17px;
     height: 110px;
 
 }
@@ -204,6 +208,7 @@ align-items: center;
 justify-content: center;
 font-weight: 900;
 font-size: 35px;
+color: white;
 
 
 
@@ -222,6 +227,7 @@ border-bottom: 3px solid black;
 align-items: center;
 justify-content: center;
 text-align: center;
+color: white;
 }
 
 .main_wrapper{

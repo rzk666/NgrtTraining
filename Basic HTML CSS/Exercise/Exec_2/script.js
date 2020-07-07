@@ -129,3 +129,18 @@ function random_bg_color_footer() {
                 }
                 
             
+let searchBar = document.querySelector("input");
+searchBar.addEventListener("keyup", function(e){
+    let term = e.target.value.toLowerCase();
+    console.log(term);
+    let newsContainer = document.querySelectorAll(".main_news_container");
+    Array.from(newsContainer).forEach(function(news) {
+        const newsTextContent = news.firstElementChild.textContent;
+        if(newsTextContent.toLowerCase().indexOf(term) != -1) {
+            news.style.display = "flex";
+        } else {
+            news.style.display = "none";
+        }
+    })
+
+})
