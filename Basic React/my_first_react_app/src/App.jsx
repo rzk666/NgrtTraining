@@ -12,6 +12,7 @@ const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         color: 'white',
+        backgroundColor: 'red',
       }}
     >
       {x}
