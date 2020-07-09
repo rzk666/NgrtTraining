@@ -1,21 +1,21 @@
 import React from 'react';
+// styles
+import styles from './App.module.scss';
 
 const App = () => {
   const x = 5;
   return (
     <div
-      className={x}
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        backgroundColor: 'red',
-      }}
+      className={styles.main_container}
     >
-      {x}
+      <div className={styles.btn}>
+        5
+      </div>
+      <div className={styles.container}>
+        <div className={styles.btn}>
+          10
+        </div>
+      </div>
     </div>
   );
 };
