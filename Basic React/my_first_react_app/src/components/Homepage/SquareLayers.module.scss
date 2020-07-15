@@ -1,0 +1,21 @@
+.red_square{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background-color: red;
+    flex-direction: column;
+}
+
+.blue_square{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    background-color: blue; 
+}
+
+.blue_square_none{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    background-color: blue; 
+}

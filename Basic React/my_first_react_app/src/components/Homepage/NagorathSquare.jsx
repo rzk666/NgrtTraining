@@ -6,7 +6,7 @@ const NagorathSquare = (props) => {
   const { color, number } = props;
   let square;
   if (color === 'blue') {
-    square = <div onClick={() => console.log('')} className={styles.blue_square}>{number}</div>;
+    square = <div onClick={() => console.log()} className={styles.blue_square}>{number}</div>;
   } else {
     square = <div className={styles.green_square}>{number}</div>;
   }
