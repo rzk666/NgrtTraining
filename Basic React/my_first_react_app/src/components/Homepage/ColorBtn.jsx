@@ -1,21 +1,33 @@
 import React from 'react';
-//Styles
+// Styles
 import styles from './ColorBtn.module.scss';
- 
+// Util
+import classnames from 'classnames';
 
-const ColorBtn = (props) => {
-    const { color } = props;
-    let btn
-    if(color === 'green') {
-        btn = <div className={styles.green_button} onClick={() => console.log()}></div>;
-    } else if(color === 'blue') {
-        btn = <div className={styles.blue_button}></div>;
-    } else {
-        btn = <div className={styles.red_button}></div>; 
-    }
-    return (
-        btn
-    )
-}
+const ColorBtn = ({
+  type,
+  color,
+  myProp,
+  onClick,
+  david,
+}) => {
+  david(color);
+  return (
+    <div
+      className={classnames(
+        styles.button,
+        {
+          [styles.type_a]: type === 'a',
+          [styles.type_b]: type === 'b',
+          [styles.type_c]: type === 'c',
+        },
+      )}
+      style={{ backgroundColor: color }}
+      onClick={() => onClick()}
+    >
+      {myProp.a}
+    </div>
+  );
+};
 
 export default ColorBtn;

@@ -1,16 +1,12 @@
 import React from 'react';
-//Styles
+// Styles
 import styles from './SquareLayers.module.scss';
- 
 
-const SquareLayers = (props) => {
-
-    return (
-        <div className={styles.red_square}>
-            <div className={styles.blue_square}></div>
-            <div className={styles.blue_square}></div>
-        </div>
-    )
-}
+const SquareLayers = (props) => (
+  <div className={styles.red_square}>
+    <div className={styles.blue_square} />
+    <div className={styles.blue_square} />
+  </div>
+);
 
 export default SquareLayers;

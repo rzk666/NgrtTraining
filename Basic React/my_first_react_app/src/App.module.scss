@@ -5,11 +5,12 @@
   background-color:white;
   justify-content: center;
   align-items: center;
-.first_layer_container{
-  height: 100%;
-  width: 50%;
-  display: flex;
-  margin-left: auto;
-  flex-direction: column;
-}
+  .first_layer_container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
+}
