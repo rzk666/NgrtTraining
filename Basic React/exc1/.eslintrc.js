@@ -18,5 +18,6 @@ module.exports = {
     'react',
   ],
   rules: {
+    "import/order": 0,
   },
 };

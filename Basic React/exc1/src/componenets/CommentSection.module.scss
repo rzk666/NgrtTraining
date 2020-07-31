@@ -1,15 +1,31 @@
 .comments_container{
-  height: 700px;
-  width: 1000px;
+  height: 100%;
+  width: 100%;
+  padding: 0 30px;
   background: rgb(201,201,214);
   background: linear-gradient(90deg, rgba(201,201,214,1) 0%, rgba(96,96,96,1) 100%, rgba(255,255,255,1) 100%);
   color: white;
   display: flex;
   justify-content: center;
   .content_wrapper{
-    height: 500px;
-    width: 700px;
-    margin-top: 50px; 
+    .post_btn{
+      margin-left: 20px;
+      border-radius: 500px;
+      height: 10px!important; 
+      width: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto 0 auto 20px;
+      min-height: 0;
+      background-color: transparent;
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+    height: 100%;
+    width: 100%;
+    padding-top: 50px;
     .inputs_wrapper{
       height: 50px;
       width: 100%;
@@ -17,21 +33,6 @@
       .input_bar{
         height: 100%;
         width: 200px;
-      }
-      .post_btn{
-        margin-left: 20px;
-        border-radius: 500px;
-        height: 10px!important; 
-        width: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto 0 auto 20px;
-        min-height: 0;
-        background-color: transparent;
-        &:hover{
-          background-color: rgba(255, 255, 255, 0.1);
-        }
       }
       .search_bar{
         margin-left: auto;
@@ -47,6 +48,19 @@
       width: 100%;
       margin-top: 50px;
       color: black;
+      display: flex;
+      flex-direction: column;
+      .comment{
+        display: flex;
+        font-size: 15px;
+        margin-left: 10px;
+        margin-top: 10px;
+        .post_btn{
+          &:hover{
+            background-color: rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
     }
   } 
 }
