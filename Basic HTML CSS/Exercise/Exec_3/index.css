@@ -1,15 +1,16 @@
 html{
     height:100%;
     width:100%;
-    
 }
 
 body{
     margin:0;
     height:100%;
     width:100%;
+}
 
-    
+.my-btn{
+    width: 100px;
 }
 
 .site_container{
@@ -21,8 +22,6 @@ body{
     background-color: #222d3f;
     padding-top: 70px;
     padding-right: 120px;
-    
-
 }
 
 .rows_container{
@@ -30,7 +29,6 @@ body{
     width:100%;
     display: flex;
     flex-direction: column;
-    
 }
 
 .first_row_container{
@@ -39,8 +37,6 @@ body{
     display: flex;
     box-sizing: border-box;
     right: 120px;  
-    
-    
 }
 
 .square_one_first{

@@ -1,13 +1,8 @@
 .site_container{
-  height: 100%;
   width: 100%;
   display: flex;
-  box-sizing: content-box;
   background-color: white;
-  flex-direction: column;
-  .squares_container{
-    height: 100%;
-    width: 100%;
-    display: flex;
-  }
+  flex-wrap: wrap;
+  border-top: 10px solid black;
+  border-left: 10px solid black;
 }
