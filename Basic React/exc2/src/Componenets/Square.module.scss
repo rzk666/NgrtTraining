@@ -1,0 +1,59 @@
+.square{
+    height: 100%;
+    width: 20%;
+    background-color: white;
+    border: 10px solid black;
+    display: flex;
+    box-sizing: content-box;
+    &:hover{
+        background-color: rgba(255, 0, 0, 0.3)
+    }
+}
+
+.square_red{
+    height: 100%;
+    width: 20%;
+    background-color: red;
+    border: 10px solid black;
+    display: flex;
+    box-sizing: content-box;
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.3)
+    }
+}
+
+.square_blue{
+    height: 100%;
+    width: 20%;
+    background-color: white;
+    border: 10px solid black;
+    display: flex;
+    box-sizing: content-box;
+    &:hover{
+        background-color: rgba(0, 0, 255, 0.5)
+    }
+}
+
+.square_yellow{
+    height: 100%;
+    width: 20%;
+    background-color: white;
+    border: 10px solid black;
+    display: flex;
+    box-sizing: content-box;
+    &:hover{
+        background-color: rgba(255, 255, 0, 0.5)
+    }
+}
+
+.square_green{
+    height: 100%;
+    width: 20%;
+    background-color: white;
+    border: 10px solid black;
+    display: flex;
+    box-sizing: content-box;
+    &:hover{
+        background-color: rgba(0, 255, 0, 0.5)
+    }
+}
