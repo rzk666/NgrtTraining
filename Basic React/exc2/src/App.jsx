@@ -21,7 +21,7 @@ class App extends React.Component {
     this.state = {
       activeSquare: 0,
     }
-    this.SQUARES = initSquares(10);
+    this.SQUARES = initSquares(25);
   }
 
   setActiveSquare(activeSquare) {
