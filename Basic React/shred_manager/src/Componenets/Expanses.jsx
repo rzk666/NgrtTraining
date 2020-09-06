@@ -3,13 +3,13 @@ import React from 'react';
 import { Input , Button , Checkbox } from 'semantic-ui-react';
 //Dicts 
 import USERS from '../Common/Users';
-import EXPANSES from '../Common/ExpansesArray'
 //styles
 import styles from './Expanses.module.scss';
 // Util
 import classNames from 'classnames'
 //Resources 
 import Logo from '../static/shredhead_logo.png';
+import Close from '../static/close.png';
 
 
 
@@ -50,7 +50,7 @@ const ExpansesInputs = ({ onChangeName, onChangeDate, onChangeOutcome , onSendCl
                         iconPosition='left'
                         value={nameValue}/>
                 <Input style={{marginBottom: 20,width: 300}}
-                        placeholder='Date'
+                        type='Date'
                         icon='calendar alternate'
                         iconPosition='left'
                         onChange={(e) => onChangeDate(e)}
@@ -136,9 +136,8 @@ class Expanses extends React.Component {
             currentNameInput: '',
             currentDateInput: '',
             currentOutcomeInput: '',
-            expanses: EXPANSES,
+            expanses: [],
             expanseId: 11,
-            
         }
     }
 
@@ -159,7 +158,7 @@ class Expanses extends React.Component {
     }
 
     sendBtnFunc() {
-        const { currentNameInput , currentDateInput , currentOutcomeInput , activeUserId } = this.state;
+        const { expanses, currentNameInput , currentDateInput , currentOutcomeInput , activeUserId } = this.state;
         const expanseObj = {
             name: currentNameInput,
             date: currentDateInput,
@@ -167,15 +166,17 @@ class Expanses extends React.Component {
             button: <Checkbox/>,
             id: activeUserId,
         };
-        EXPANSES.push(expanseObj);
-        this.setState({ currentNameInput: '', currentDateInput: '', currentOutcomeInput: '' , });
+        const newExpenses = [...expanses];
+        newExpenses.push(expanseObj);
+        this.setState({ expanses:newExpenses, currentNameInput: '', currentDateInput: '', currentOutcomeInput: '' , });
     }
 
     render () {
         const { activeUserId , currentNameInput , currentDateInput , currentOutcomeInput , expanses } = this.state;
-
+        const { onClose } = this.props;
         return (
             <>
+            <img onClick={() => onClose()} src={Close} alt="Close" className={styles.close}/>
             <div className={styles.logo_container}>
                 <img src={Logo} alt="" className={styles.logo}/>
             </div>

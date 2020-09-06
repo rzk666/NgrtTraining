@@ -61,6 +61,7 @@ class Merch extends React.Component {
 
     render () {
         const { currentProductName , currentStock } = this.state;
+        const { openExpenses } = this.props;
         return (
             <>
             <div className={styles.logo_container}>
@@ -68,13 +69,16 @@ class Merch extends React.Component {
             </div>
             <div className={styles.content_container}>
                 <div className={styles.nav_bar_container}>
-                    <UploadModal 
+                    <UploadModal
                     className={styles.add_item_btn}
                     onChangeProductName={(event) => this.setCurrentProductName(event.currentTarget.value)}
                     onChangeStock={(event) => this.setCurrentStock(event.currentTarget.value)}
                     onClickAddItem={() => this.addNewItem()}
                     nameValue={currentProductName}
                     stockValue={currentStock}/>
+                    <Button onClick={() => openExpenses()} style={{ width: '150px', height: '40px', padding: '0 5px',}}>
+                        Open Expenses
+                    </Button>
                 </div>
                 <div className={styles.merch_container}>
                     {PRODUCTS.map((product) => (
