@@ -36,7 +36,13 @@ class Merch extends React.Component {
         this.state={
             currentProductName: '',
             currentStock: 0,
-            currentProductImg: NoImg
+            currentProductImg: NoImg,
+            activeUserId: 11,
+            currentNameInput: '',
+            currentDateInput: '',
+            currentOutcomeInput: '',
+            expanses: [],
+            expanseId: 11,
         }
     }
 

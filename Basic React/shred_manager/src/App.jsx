@@ -15,12 +15,19 @@ class App extends React.Component{
       this.state = {
         currentPage: HOMEPAGE,
         testProp: 0,
+        expanses: []
       }
     }
 
-    returnToHomepage(){
+    updateExpanse(expanses){
+      this.setState({ expanses })
+    }
+
+    returnToHomepage(expansesToSave){
       const { HOMEPAGE } = pages;
-      this.setState({ currentPage: HOMEPAGE });
+      const { expanses } = this.state;
+      const newExpanses = [...expanses , ...expansesToSave]
+      this.setState({ currentPage: HOMEPAGE , expanses: newExpanses});
     }
 
     openExpenses(){
@@ -38,7 +45,7 @@ class App extends React.Component{
     }
 
     render() {
-    const { currentPage, testProp } = this.state;
+    const { currentPage, testProp , expanses } = this.state;
     const { HOMEPAGE, LOGIN, EXPENSES } = pages ; 
     return ( 
       <div className={styles.site_container}>
@@ -47,7 +54,10 @@ class App extends React.Component{
           onLogin={() => this.onLogin()} 
           testProp={testProp}/> }
         { currentPage === HOMEPAGE && <Merch openExpenses={() => this.openExpenses()}/> }
-        { currentPage === EXPENSES && <Expanses onClose={() => this.returnToHomepage()}/> }
+        { currentPage === EXPENSES && <Expanses 
+          onClose={(expansesToSave) => this.returnToHomepage(expansesToSave)}
+          expansesArray={expanses}
+          updateExpanses={() => this.updateExpanse()}/> }
       </div>
     );
   }

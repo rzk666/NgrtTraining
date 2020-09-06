@@ -36,10 +36,6 @@
         border-left: 5px black solid;
         justify-content: center;
         .merch_card{
-            &:hover{
-                cursor: pointer;
-                border: 2px solid red;
-            }
             height: 400px;
             width: 20%;
             background-color: white;

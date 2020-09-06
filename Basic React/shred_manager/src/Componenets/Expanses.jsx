@@ -131,18 +131,21 @@ const ExpansesOutput= ({ expansesArray , activeUserId }) => {
 class Expanses extends React.Component {
     constructor(props) {
         super(props);  
+        const { expansesArray } = this.props;
         this.state = {
             activeUserId: 11,
             currentNameInput: '',
             currentDateInput: '',
             currentOutcomeInput: '',
-            expanses: [],
+            expanses: expansesArray,
             expanseId: 11,
         }
     }
 
     setActiveUser(activeUserId) {
+        const { expanses} = this.state;
         this.setState({ activeUserId });
+        console.log(expanses);
     }
 
     setCurrentName(currentNameInput) {
@@ -158,7 +161,7 @@ class Expanses extends React.Component {
     }
 
     sendBtnFunc() {
-        const { expanses, currentNameInput , currentDateInput , currentOutcomeInput , activeUserId } = this.state;
+        const { expanses , currentNameInput , currentDateInput , currentOutcomeInput , activeUserId } = this.state;
         const expanseObj = {
             name: currentNameInput,
             date: currentDateInput,
@@ -173,10 +176,10 @@ class Expanses extends React.Component {
 
     render () {
         const { activeUserId , currentNameInput , currentDateInput , currentOutcomeInput , expanses } = this.state;
-        const { onClose } = this.props;
+        const { onClose , expansesArray , updateExpanses} = this.props;
         return (
             <>
-            <img onClick={() => onClose()} src={Close} alt="Close" className={styles.close}/>
+            <img onClick={() => onClose(expanses)} src={Close} alt="Close" className={styles.close}/>
             <div className={styles.logo_container}>
                 <img src={Logo} alt="" className={styles.logo}/>
             </div>
@@ -200,7 +203,7 @@ class Expanses extends React.Component {
                 outcomeValue={currentOutcomeInput}/>
                 </div>
                 <div className={styles.expanses_output}>
-                    <ExpansesOutput expansesArray={expanses} activeUserId={activeUserId}/>
+                    <ExpansesOutput expansesArray={expansesArray} activeUserId={activeUserId}/>
                 </div>
             </div>
             </>
