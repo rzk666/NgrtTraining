@@ -1,6 +1,8 @@
 import React from 'react';
 // Componenets
 import { Input, Button } from 'semantic-ui-react';
+// Util
+import classNames from 'classnames'
 // styles
 import styles from './CommentSection.module.scss';
 
@@ -13,12 +15,18 @@ const CustomButton = ({ onClick, icon }) => (
   />
 );
 
-const Comment = ({ data, onDeleteClick }) => (
+const Comment = ({ data, onDeleteClick, icon }) => (
   <div className={styles.comment}>
     {data}
-    <CustomButton icon="delete" onClick={() => onDeleteClick()} />
+    <CustomButton icon={icon} onClick={() => onDeleteClick()} />
   </div>
 );
+
+const RestoreButton = ({ onClick }) => (
+  <Button onClick={() => onClick()}>Restore deleted comments</Button>
+)
+
+
 
 class CommentSection extends React.Component {
   constructor(props) {
@@ -27,6 +35,8 @@ class CommentSection extends React.Component {
       comments: [],
       currentComment: '',
       currentSearch: '',
+      deletedComments: [],
+      isDeletedActive: false
     };
   }
 
@@ -39,9 +49,11 @@ class CommentSection extends React.Component {
   }
 
   deleteComment(commentToDelete) {
-    const { comments } = this.state;
+    const { comments, deletedComments } = this.state;
     const newComments = [...comments].filter((comment) => comment !== commentToDelete);
+    deletedComments.push(commentToDelete)
     this.setState({ comments: newComments });
+    console.log(deletedComments)
   }
 
   addComment() {
@@ -52,11 +64,26 @@ class CommentSection extends React.Component {
     this.setState({ comments: newComments, currentComment: '' });
   }
 
+  openDeletedComments() {
+      const { isDeletedActive } = this.state
+      this.setState({ isDeletedActive: !isDeletedActive })
+  }
+
+  restoreDeletedComment(commentToRestore) {
+    const { comments , deletedComments} = this.state;
+    const newComments = [...comments, commentToRestore];
+    const newDeletedComments = [...deletedComments].filter((comment) => comment !== commentToRestore);
+    this.setState({ comments: newComments , deletedComments: newDeletedComments })
+  }
+
+
   render() {
     const {
       currentComment,
       currentSearch,
       comments,
+      isDeletedActive,
+      deletedComments
     } = this.state;
     const filteredComments = comments.filter((comment) => comment.includes(currentSearch));
     return (
@@ -85,6 +112,23 @@ class CommentSection extends React.Component {
               <Comment
                 data={comment}
                 onDeleteClick={() => this.deleteComment(comment)}
+                icon="delete"
+              />
+            ))}
+          </div>
+          <div className={styles.restore_btn}>
+            <RestoreButton onClick={() => this.openDeletedComments()}/>
+          </div>
+          
+          <div className={classNames(styles.deleted_comments_section,
+            {
+              [styles.deleted_comments_section_active]: isDeletedActive
+            })}>
+            {deletedComments.map((comment) => (
+              <Comment
+                data={comment}
+                onDeleteClick={() => this.restoreDeletedComment(comment)}
+                icon="chevron down"
               />
             ))}
           </div>
