@@ -148,7 +148,6 @@ class Expanses extends React.Component {
       currentDateInput: '',
       currentOutcomeInput: '',
       expanses: expansesArray,
-      expanseId: 11,
     };
   }
 
@@ -180,7 +179,6 @@ class Expanses extends React.Component {
       button: <Checkbox />,
       id: activeUserId,
     };
-    const newExpenses = [...expanses];
     expansesArray.push(expanseObj);
     this.setState({ currentNameInput: '', currentDateInput: '', currentOutcomeInput: '' });
   }
