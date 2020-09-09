@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  BrowserRouter as Router, Switch, Route,
+} from 'react-router-dom';
+import { withRouter } from 'react-router';
 // Componenets
 import Login from './Componenets/Login';
 import Expanses from './Componenets/Expanses';
@@ -13,15 +17,19 @@ class App extends React.Component {
     super(props);
     const { LOGIN, HOMEPAGE, EXPENSES } = pages;
     this.state = {
-      currentPage: HOMEPAGE,
       testProp: 0,
       expanses: [],
     };
   }
 
+  componentDidMount() {
+    const { history, router } = this.props;
+    console.log(router);
+    console.log(history);
+  }
+
   onLogin() {
-    const { HOMEPAGE } = pages;
-    this.setState({ currentPage: HOMEPAGE });
+
   }
 
   returnToHomepage() {
@@ -43,33 +51,31 @@ class App extends React.Component {
   }
 
   render() {
-    const { currentPage, testProp, expanses } = this.state;
+    const { testProp, expanses } = this.state;
     const { HOMEPAGE, LOGIN, EXPENSES } = pages;
     return (
-      <div className={styles.site_container}>
-        <div
-          onClick={() => this.changeTestProp()}
-          style={{
-            width: '50px', height: '50px', position: 'fixed', left: '300px', top: '300px', backgroundColor: 'red',
-          }}
-        />
-        { currentPage === LOGIN && (
-        <Login
-          onLogin={() => this.onLogin()}
-          testProp={testProp}
-        />
-        ) }
-        { currentPage === HOMEPAGE && <Merch openExpenses={() => this.openExpenses()} /> }
-        { currentPage === EXPENSES && (
-        <Expanses
-          onClose={() => this.returnToHomepage()}
-          expansesArray={expanses}
-          updateExpanses={() => this.updateExpanse()}
-        />
-        ) }
-      </div>
+      <Router>
+        <Switch>
+          <Route path="/" exact render={(props) => (<Login testProp={testProp} onLogin={() => this.onLogin()} {...props} />)} />
+          <Route path="/Merch" exact render={(props) => (<Merch openExpenses={() => this.openExpenses()} {...props} />)} />
+          <Route
+            path="/Expanses"
+            exact
+            render={(props) => (
+              <Expanses
+                onClose={() => this.returnToHomepage()}
+                expansesArray={expanses}
+                updateExpanse={(exp) => this.updateExpanse(exp)}
+                {...props}
+              />
+            )}
+          />
+        </Switch>
+      </Router>
     );
   }
 }
 
-export default App;
+const routedApp = withRouter(App);
+
+export default routedApp;

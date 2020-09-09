@@ -169,9 +169,9 @@ class Expanses extends React.Component {
 
   sendBtnFunc() {
     const {
-      expanses, currentNameInput, currentDateInput, currentOutcomeInput, activeUserId,
+      currentNameInput, currentDateInput, currentOutcomeInput, activeUserId
     } = this.state;
-    const { expansesArray } = this.props;
+    const { expansesArray, updateExpanse } = this.props;
     const expanseObj = {
       name: currentNameInput,
       date: currentDateInput,
@@ -179,16 +179,17 @@ class Expanses extends React.Component {
       button: <Checkbox />,
       id: activeUserId,
     };
-    expansesArray.push(expanseObj);
+    const newExpensesArray = [...expansesArray, expanseObj];
+    updateExpanse(newExpensesArray);
     this.setState({ currentNameInput: '', currentDateInput: '', currentOutcomeInput: '' });
   }
 
   render() {
     const {
       activeUserId,
-      currentNameInput, currentDateInput, currentOutcomeInput, expanses,
+      currentNameInput, currentDateInput, currentOutcomeInput,
     } = this.state;
-    const { onClose, expansesArray, updateExpanses } = this.props;
+    const { onClose, expansesArray } = this.props;
     return (
       <>
         <img onClick={() => onClose()} src={Close} alt="Close" className={styles.close} />
