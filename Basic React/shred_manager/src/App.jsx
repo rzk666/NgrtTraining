@@ -19,8 +19,9 @@ class App extends React.Component {
     };
   }
 
-  updateExpanse(expanses) {
-    this.setState({ expanses });
+  onLogin() {
+    const { HOMEPAGE } = pages;
+    this.setState({ currentPage: HOMEPAGE });
   }
 
   returnToHomepage() {
@@ -33,13 +34,12 @@ class App extends React.Component {
     this.setState({ currentPage: EXPENSES });
   }
 
-  onLogin() {
-    const { HOMEPAGE } = pages;
-    this.setState({ currentPage: HOMEPAGE });
-  }
-
   changeTestProp() {
     this.setState({ testProp: 1 });
+  }
+
+  updateExpanse(expanses) {
+    this.setState({ expanses });
   }
 
   render() {

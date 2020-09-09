@@ -63,7 +63,6 @@ class Login extends React.Component {
 
   render() {
     const { isLoggedIn } = this.state;
-    const { testProp } = this.props;
     return (
       <div className={styles.site_container}>
         <div className={styles.logo_container}>
