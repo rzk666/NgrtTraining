@@ -143,9 +143,8 @@ class Expanses extends React.Component {
     }
 
     setActiveUser(activeUserId) {
-        const { expanses} = this.state;
         this.setState({ activeUserId });
-        console.log(expanses);
+        
     }
 
     setCurrentName(currentNameInput) {
@@ -162,6 +161,7 @@ class Expanses extends React.Component {
 
     sendBtnFunc() {
         const { expanses , currentNameInput , currentDateInput , currentOutcomeInput , activeUserId } = this.state;
+        const { expansesArray } = this.props;
         const expanseObj = {
             name: currentNameInput,
             date: currentDateInput,
@@ -170,8 +170,8 @@ class Expanses extends React.Component {
             id: activeUserId,
         };
         const newExpenses = [...expanses];
-        newExpenses.push(expanseObj);
-        this.setState({ expanses:newExpenses, currentNameInput: '', currentDateInput: '', currentOutcomeInput: '' , });
+        expansesArray.push(expanseObj);
+        this.setState({ currentNameInput: '', currentDateInput: '', currentOutcomeInput: '' , });
     }
 
     render () {
@@ -179,7 +179,7 @@ class Expanses extends React.Component {
         const { onClose , expansesArray , updateExpanses} = this.props;
         return (
             <>
-            <img onClick={() => onClose(expanses)} src={Close} alt="Close" className={styles.close}/>
+            <img onClick={() => onClose()} src={Close} alt="Close" className={styles.close}/>
             <div className={styles.logo_container}>
                 <img src={Logo} alt="" className={styles.logo}/>
             </div>

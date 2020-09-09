@@ -23,11 +23,9 @@ class App extends React.Component{
       this.setState({ expanses })
     }
 
-    returnToHomepage(expansesToSave){
+    returnToHomepage(){
       const { HOMEPAGE } = pages;
-      const { expanses } = this.state;
-      const newExpanses = [...expanses , ...expansesToSave]
-      this.setState({ currentPage: HOMEPAGE , expanses: newExpanses});
+      this.setState({ currentPage: HOMEPAGE });
     }
 
     openExpenses(){
@@ -55,7 +53,7 @@ class App extends React.Component{
           testProp={testProp}/> }
         { currentPage === HOMEPAGE && <Merch openExpenses={() => this.openExpenses()}/> }
         { currentPage === EXPENSES && <Expanses 
-          onClose={(expansesToSave) => this.returnToHomepage(expansesToSave)}
+          onClose={() => this.returnToHomepage()}
           expansesArray={expanses}
           updateExpanses={() => this.updateExpanse()}/> }
       </div>
