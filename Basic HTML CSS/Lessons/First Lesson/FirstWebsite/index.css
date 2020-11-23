@@ -1,0 +1,49 @@
+a{
+    font-size: 20px;
+    color: red;
+}
+
+#test{
+    margin-bottom: 20px;
+}
+
+.david{
+    font-size:8px;
+    color: pink;
+    
+}
+
+#link_container{
+    transition: background-color 0.25s;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+
+#link_container:hover{
+    background-color: red;
+}
+
+#link_container::after{
+    content: '';
+    width:1px;
+    height:20px;
+}
+
+.davidtest {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    font-size: 12px;
+    color:white;
+    border: 1px solid hotpink;
+}
+
+.small_square{
+    width: 25px;
+    height: 25px;
+    background-color: indigo;
+    padding:2px;
+    box-sizing: border-box;
+    margin-top:10px;
+}
