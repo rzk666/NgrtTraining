@@ -1,0 +1,101 @@
+.square{
+    height: 100px;
+    width: 20%;
+    border-bottom: 10px solid black;
+    border-right: 10px solid black;
+    display: flex;
+    transition: background-color 0.25s ease;
+    &.red{
+        background-color: rgba(203, 11, 46, 0.3);
+        &:hover{
+            background-color: rgba(203, 11, 46, 0.6);
+        }
+        &.is_active{
+            background-color: rgba(203, 11, 46, 1);
+        }
+    }
+    &.green{
+        background-color: rgba(62, 203, 11, 0.3);
+        &:hover{
+            background-color: rgba(62, 203, 11, 0.6);
+        }
+        &.is_active{
+            background-color: rgba(62, 203, 11, 1)
+        }
+    }
+    &.blue{
+        background-color: rgba(11, 52, 203, 0.3);
+        &:hover{
+            background-color: rgba(11, 52, 203, 0.6)
+        }
+        &.is_active{
+            background-color: rgba(11, 52, 203, 1)
+        }
+    }
+    &.yellow{
+        background-color: rgba(227, 244, 42, 0.3);
+        &:hover{
+            background-color: rgba(227, 244, 42, 0.6)
+        }
+        &.is_active{
+            background-color: rgba(227, 244, 42, 1)
+        }
+    }
+    &.grey{
+        background-color: rgba(156, 159, 127, 0.3);
+        &:hover{
+            background-color: rgba(156, 159, 127, 0.6)
+        }
+        &.is_active{
+            background-color: rgba(156, 159, 127, 1)
+        }
+    }
+}
+
+.square_red{
+    height: 100%;
+    width: 20%;
+    background-color: red;
+    border: 10px solid black;
+    display: flex;
+    box-sizing: content-box;
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.3)
+    }
+}
+
+.square_blue{
+    height: 100%;
+    width: 20%;
+    background-color: white;
+    border: 10px solid black;
+    display: flex;
+    box-sizing: content-box;
+    &:hover{
+        background-color: rgba(0, 0, 255, 0.5)
+    }
+}
+
+.square_yellow{
+    height: 100%;
+    width: 20%;
+    background-color: white;
+    border: 10px solid black;
+    display: flex;
+    box-sizing: content-box;
+    &:hover{
+        background-color: rgba(255, 255, 0, 0.5)
+    }
+}
+
+.square_green{
+    height: 100%;
+    width: 20%;
+    background-color: white;
+    border: 10px solid black;
+    display: flex;
+    box-sizing: content-box;
+    &:hover{
+        background-color: rgba(0, 255, 0, 0.5)
+    }
+}
