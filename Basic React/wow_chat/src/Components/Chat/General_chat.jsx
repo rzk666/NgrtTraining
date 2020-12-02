@@ -131,7 +131,7 @@ const Message = ({ data, activePlayer }) => (
   </>
 );
 
-const GeneralChat = ({ chats, activePlayer }) => {
+const GeneralChat = ({ chats , activePlayer }) => {
   const x = 5;
   return (
     <>

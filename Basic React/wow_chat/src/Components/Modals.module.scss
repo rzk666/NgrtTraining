@@ -1,0 +1,12 @@
+.event_modal_container{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    .event_modal{
+      margin-right: 30px;
+      color: red;
+    }
+  }
