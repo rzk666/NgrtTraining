@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Button, Header, Image, Modal, Input,
 } from 'semantic-ui-react';
 
-function ModalExampleModal({ onChangeXP, onClickLoot, inputValue }) {
-  const [open, setOpen] = React.useState(false);
+const LootEventModal = ({ onChangeLoot, onClickLoot, inputValue }) => {
+  const [open, setOpen] = useState(false);
 
   return (
     <Modal
@@ -22,7 +22,7 @@ function ModalExampleModal({ onChangeXP, onClickLoot, inputValue }) {
             Please enter the name of the item you would like to loot:
           </p>
           <Input
-            onChange={(e) => onChangeXP(e)}
+            onChange={(e) => onChangeLoot(e)}
             value={inputValue}
           />
         </Modal.Description>
@@ -44,6 +44,6 @@ function ModalExampleModal({ onChangeXP, onClickLoot, inputValue }) {
       </Modal.Actions>
     </Modal>
   );
-}
+};
 
-export default ModalExampleModal;
+export default LootEventModal;

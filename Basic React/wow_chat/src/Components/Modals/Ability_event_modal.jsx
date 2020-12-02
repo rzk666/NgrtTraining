@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Button, Header, Image, Modal, Input,
 } from 'semantic-ui-react';
 
-function ModalExampleModal({ onChangeXP, onClickAbility, inputValue }) {
-  const [open, setOpen] = React.useState(false);
+const AbilityEventModal = ({ onChangeAbility, onClickAbility, inputValue }) => {
+  const [open, setOpen] = useState(false);
 
   return (
     <Modal
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<Button style={{marginRight: 20}}>Learn New Ability</Button>}
+      trigger={<Button style={{ marginRight: 20 }}>Learn New Ability</Button>}
     >
       <Modal.Header>Select a Photo</Modal.Header>
       <Modal.Content image>
@@ -22,7 +22,7 @@ function ModalExampleModal({ onChangeXP, onClickAbility, inputValue }) {
             Please enter the name of the new ability you would like to learn:
           </p>
           <Input
-            onChange={(e) => onChangeXP(e)}
+            onChange={(e) => onChangeAbility(e)}
             value={inputValue}
           />
         </Modal.Description>
@@ -44,6 +44,6 @@ function ModalExampleModal({ onChangeXP, onClickAbility, inputValue }) {
       </Modal.Actions>
     </Modal>
   );
-}
+};
 
-export default ModalExampleModal;
+export default AbilityEventModal;

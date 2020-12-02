@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 // ---Styles---//
 import { Button } from 'semantic-ui-react';
@@ -11,78 +11,14 @@ import GeneralChat from './Chat/General_chat';
 import CombatChat from './Chat/Combat_chat';
 import MyActionsChat from './Chat/MyActions_chat';
 import WHTMChat from './Chat/WHTM_chat';
-import XPEventModal from './Modals/XP_event_modal';
-import LVLEventModal from './Modals/Level_event_modal';
-import AbilityEventModal from './Modals/Ability_event_modal';
-import LootEventModal from './Modals/Loot_event_modal';
 // --Consts & Dicts---//
 import CHATS from '../Common/Chats';
-
-const MONSTER = [{
-  name: 'ROZDIN',
-  hp: 5000,
-  abilities: [
-    {
-      name: 'Skull Basher',
-      dmg: 500,
-      critDmg: 750,
-    },
-    {
-      name: 'Splitter',
-      dmg: 1000,
-      critDmg: 1500,
-    },
-    {
-      name: 'Heal',
-      dmg: 500,
-      critDmg: 750,
-    },
-    {
-      name: 'Monastry',
-      dmg: 800,
-      critDmg: 1200,
-    },
-  ],
-},
-];
-
-const PLAYER = [{
-  username: 'Nagorath',
-  class: 'Warrior',
-  realm: 'Kazzak',
-  hp: 5000,
-  abilities: [
-    {
-      name: 'Slash',
-      dmg: 750,
-      critDmg: 1000,
-    },
-    {
-      name: 'Kamikaza',
-      dmg: 1000,
-      critDmg: 1500,
-    },
-    {
-      name: 'Pray',
-      dmg: 500,
-      critDmg: 750,
-    },
-    {
-      name: 'Band Of Brothers',
-      dmg: 1000,
-      critDmg: 1500,
-    },
-  ],
-}];
-
-const COMBATCHATS = {
-  MYACTIONS: './myActions',
-  WHTM: '/whatHappenedToMe',
-};
+import PLAYERS from '../Common/Players';
+import MONSTERS from '../Common/Monsters';
 
 const Chat = ({ generalChatData, addGeneralChatEvent }) => {
-  const { GENERAL, COMBAT } = CHATS;
-  const { MYACTIONS, WHTM } = COMBATCHATS;
+  const { GENERAL, COMBAT, MYACTIONS, WHTM } = CHATS;
+  
   // State
   const [activeChat, setActiveChat] = useState(GENERAL);
   const [currentChatInput, setCurrentChatInput] = useState('');
@@ -120,10 +56,6 @@ const Chat = ({ generalChatData, addGeneralChatEvent }) => {
     }
     toggleInputFocus(!isInputFocused);
   };
-
-
-
-
 
   if (currentChatInput === '/say') {
     setCurrentChatChannel('Say');
@@ -244,7 +176,7 @@ const Chat = ({ generalChatData, addGeneralChatEvent }) => {
       <div className={styles.chat_container}>
         {activeChat === GENERAL && (
         <GeneralChat
-          activePlayer={PLAYER}
+          activePlayer={PLAYERS}
           chats={generalChatData}
           currentChat={currentChatChannel}
         />

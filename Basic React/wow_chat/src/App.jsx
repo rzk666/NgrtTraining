@@ -6,10 +6,9 @@ import Chat from './Components/Chat';
 import Modals from './Components/Modals';
 
 const App = () => {
+  // State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [generalChat, addGeneralChatEvent] = useState([]);
-  const [currentModalEvent, setCurrentModalEvent] = useState('');
-
   return (
     <div className={styles.site_container}>
       <h2 className={styles.header}>World Of Warcraft Chat Simulator</h2>
@@ -17,10 +16,12 @@ const App = () => {
         generalChatData={generalChat}
         addGeneralChatEvent={addGeneralChatEvent}
       />
-      {/* <Modals
+      <Modals
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
-      /> */}
+        generalChatData={generalChat}
+        addGeneralChatEvent={addGeneralChatEvent}
+      />
     </div>
   );
 };
