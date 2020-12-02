@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+// -----Components----- //
 import {
   Button, Header, Image, Modal, Input,
 } from 'semantic-ui-react';
+// -----Images----- //
+import LevelUpImage from '../../Static/Modals/Level Up.png';
 
-const LevelEventModal = ({ onChangeLvl, onClickLvl, inputValue }) => {
+const LevelEventModal = ({
+  onChangeLvl, onClickLvl, inputValue, setCurrentModalEvent,
+}) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,7 +20,11 @@ const LevelEventModal = ({ onChangeLvl, onClickLvl, inputValue }) => {
     >
       <Modal.Header>Select a Photo</Modal.Header>
       <Modal.Content image>
-        <Image size="medium" src="https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/arrow_up.png" wrapped />
+        <Image
+          size="medium"
+          src={LevelUpImage}
+          wrapped
+        />
         <Modal.Description>
           <Header>Add Level Up Event</Header>
           <p>
@@ -28,7 +37,13 @@ const LevelEventModal = ({ onChangeLvl, onClickLvl, inputValue }) => {
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <Button color="black" onClick={() => setOpen(false)}>
+        <Button
+          color="black"
+          onClick={() => {
+            setOpen(false);
+            setCurrentModalEvent('');
+          }}
+        >
           Close
         </Button>
         <Button

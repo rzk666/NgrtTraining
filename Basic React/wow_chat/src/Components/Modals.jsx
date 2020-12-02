@@ -59,24 +59,28 @@ const Modals = ({ generalChatData, addGeneralChatEvent }) => {
         onClickXP={addNewXPEvent}
         inputValue={currentModalEvent}
         className={styles.event_modal}
+        setCurrentModalEvent={setCurrentModalEvent}
       />
       <LVLEventModal
         onChangeLvl={(e) => setCurrentModalEvent(e.currentTarget.value)}
-        onClickLvl={() => addNewLvlUpEvent()}
+        onClickLvl={addNewLvlUpEvent}
         inputValue={currentModalEvent}
         className={styles.event_modal}
+        setCurrentModalEvent={setCurrentModalEvent}
       />
       <AbilityEventModal
         onChangeAbility={(e) => setCurrentModalEvent(e.currentTarget.value)}
-        onClickAbility={() => addNewAbilityEvent()}
+        onClickAbility={addNewAbilityEvent}
         inputValue={currentModalEvent}
         className={styles.event_modal}
+        setCurrentModalEvent={setCurrentModalEvent}
       />
       <LootEventModal
         onChangeLoot={(e) => setCurrentModalEvent(e.currentTarget.value)}
-        onClickLoot={() => addNewLootEvent()}
+        onClickLoot={addNewLootEvent}
         inputValue={currentModalEvent}
         className={styles.event_modal}
+        setCurrentModalEvent={setCurrentModalEvent}
       />
       <Button
         style={{ backgroundColor: '#A80000' }}

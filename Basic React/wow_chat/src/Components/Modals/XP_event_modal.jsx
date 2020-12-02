@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+// -----Components----- //
 import {
   Button, Header, Image, Modal, Input,
 } from 'semantic-ui-react';
+// -----Images----- //
+import XPImage from '../../Static/Modals/XP.png';
 
-const XPEventModal = ({ onChangeXP, onClickXP, inputValue }) => {
+const XPEventModal = ({
+  onChangeXP, onClickXP, inputValue, setCurrentModalEvent,
+}) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -19,7 +24,7 @@ const XPEventModal = ({ onChangeXP, onClickXP, inputValue }) => {
       <Modal.Content image>
         <Image
           size="medium"
-          src="https://titles.trackercdn.com/modern-warfare/db/images/icon_double_xp_token_legendary.png?7940430"
+          src={XPImage}
           wrapped
         />
         <Modal.Description>
@@ -38,7 +43,10 @@ const XPEventModal = ({ onChangeXP, onClickXP, inputValue }) => {
       <Modal.Actions>
         <Button
           color="black"
-          onClick={() => setOpen(false)}
+          onClick={() => {
+            setOpen(false);
+            setCurrentModalEvent('');
+          }}
         >
           Close
         </Button>
@@ -55,6 +63,6 @@ const XPEventModal = ({ onChangeXP, onClickXP, inputValue }) => {
       </Modal.Actions>
     </Modal>
   );
-}
+};
 
 export default XPEventModal;

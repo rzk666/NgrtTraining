@@ -131,15 +131,14 @@ const Message = ({ data, activePlayer }) => (
   </>
 );
 
-const GeneralChat = ({ chats , activePlayer }) => {
-  const x = 5;
-  return (
-    <>
+const GeneralChat = ({ chats, activePlayer }) => (
+  <>
+    <div className={styles.chat_container}>
       {chats.map((chat) => (
         <Message data={chat} activePlayer={activePlayer} />
       ))}
-    </>
-  );
-};
+    </div>
+  </>
+);
 
 export default GeneralChat;

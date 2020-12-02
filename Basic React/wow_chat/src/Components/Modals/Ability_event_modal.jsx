@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+// -----Componenets-----//
 import {
   Button, Header, Image, Modal, Input,
 } from 'semantic-ui-react';
+// -----Images----- //
+import AbilityImage from '../../Static/Modals/Ability.png';
 
-const AbilityEventModal = ({ onChangeAbility, onClickAbility, inputValue }) => {
+const AbilityEventModal = ({
+  onChangeAbility, onClickAbility, inputValue, setCurrentModalEvent,
+}) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,7 +20,11 @@ const AbilityEventModal = ({ onChangeAbility, onClickAbility, inputValue }) => {
     >
       <Modal.Header>Select a Photo</Modal.Header>
       <Modal.Content image>
-        <Image size="medium" src="https://tr.rbxcdn.com/99d5b12d091d22881d4a8aaba5905f62/420/420/Gear/Png" wrapped />
+        <Image
+          size="medium"
+          src={AbilityImage}
+          wrapped
+        />
         <Modal.Description>
           <Header>Add New Ability Event</Header>
           <p>
@@ -28,7 +37,13 @@ const AbilityEventModal = ({ onChangeAbility, onClickAbility, inputValue }) => {
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <Button color="black" onClick={() => setOpen(false)}>
+        <Button
+          color="black"
+          onClick={() => {
+            setOpen(false);
+            setCurrentModalEvent('');
+          }}
+        >
           Close
         </Button>
         <Button

@@ -1,15 +1,12 @@
-// .chat_container{
-//     height: 100%;
-//     width: 100%;
-//     background-color: black;   
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-end;
-// }
-
+.chat_container{
+  display: flex;
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
 .chat_event_container{
-    height: 20px;
-    width: 100%;
+    width: 95%;
     color: white;
     font-size: 20px;
     display: flex;
@@ -18,7 +15,6 @@
     margin-top: 5px;
     margin-bottom: 15px;
     .chat_event{
-
       &.yell{
         color: #FFB22A
       }
@@ -42,3 +38,4 @@
       cursor: pointer;
     }
     }
+}

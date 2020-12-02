@@ -34,7 +34,6 @@
     color: white;
     font-size: 20px;
     justify-content: flex-end;
-    overflow: scroll;
   }
   .input_container{
     width: 80%;
@@ -50,6 +49,7 @@
       background-color: white;
       justify-content: center;
       width: 10%;
+      font-family: 'Heebo';
       &.yell{
         color: #FFB22A
       }

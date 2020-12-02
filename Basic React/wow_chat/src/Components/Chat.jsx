@@ -17,8 +17,9 @@ import PLAYERS from '../Common/Players';
 import MONSTERS from '../Common/Monsters';
 
 const Chat = ({ generalChatData, addGeneralChatEvent }) => {
-  const { GENERAL, COMBAT, MYACTIONS, WHTM } = CHATS;
-  
+  const {
+    GENERAL, COMBAT, MYACTIONS, WHTM,
+  } = CHATS;
   // State
   const [activeChat, setActiveChat] = useState(GENERAL);
   const [currentChatInput, setCurrentChatInput] = useState('');

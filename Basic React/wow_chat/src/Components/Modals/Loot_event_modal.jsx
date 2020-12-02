@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+// -----Componenets----- //
 import {
   Button, Header, Image, Modal, Input,
 } from 'semantic-ui-react';
+// -----Images ----- //
+import LootImage from '../../Static/Modals/Loot.png';
 
-const LootEventModal = ({ onChangeLoot, onClickLoot, inputValue }) => {
+const LootEventModal = ({
+  onChangeLoot, onClickLoot, inputValue, setCurrentModalEvent,
+}) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,7 +20,11 @@ const LootEventModal = ({ onChangeLoot, onClickLoot, inputValue }) => {
     >
       <Modal.Header>Loot</Modal.Header>
       <Modal.Content image>
-        <Image size="medium" src="https://blog.goldeneaglecoin.com/wp-content/uploads/2015/03/90-percent-silver-bag.png" wrapped />
+        <Image
+          size="medium"
+          src={LootImage}
+          wrapped
+        />
         <Modal.Description>
           <Header>Add New Loot Event</Header>
           <p>
@@ -28,7 +37,13 @@ const LootEventModal = ({ onChangeLoot, onClickLoot, inputValue }) => {
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <Button color="black" onClick={() => setOpen(false)}>
+        <Button
+          color="black"
+          onClick={() => {
+            setOpen(false);
+            setCurrentModalEvent('');
+          }}
+        >
           Close
         </Button>
         <Button
