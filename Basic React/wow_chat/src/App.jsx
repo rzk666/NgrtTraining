@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-// ---Styles---
+// ---libs---//
+import { motion } from 'framer-motion';
+// ---Styles---//
 import styles from './App.module.scss';
 // ---Componenets---//
 import Chat from './Components/Chat';
@@ -11,6 +13,13 @@ const App = () => {
   const [generalChat, addGeneralChatEvent] = useState([]);
   return (
     <div className={styles.site_container}>
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        style={{ height: '50px', width: '50px', backgroundColor: 'red' }}
+      >
+        TEST
+      </motion.div>
       <h2 className={styles.header}>World Of Warcraft Chat Simulator</h2>
       <Chat
         generalChatData={generalChat}

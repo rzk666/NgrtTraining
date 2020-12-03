@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { Button } from 'semantic-ui-react';
 import styles from './Chat.module.scss';
 // ---Hooks--- //
-// import useKey from '../hooks/useKey';
 import useKey from '../hooks/useKey';
 // ---Componenets---//
 import GeneralChat from './Chat/General_chat';
