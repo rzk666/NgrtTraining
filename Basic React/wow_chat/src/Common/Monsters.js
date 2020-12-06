@@ -13,7 +13,7 @@ const MONSTERS = [{
       critDmg: 1500,
     },
     {
-      name: 'Heal',
+      name: 'Electric Tears',
       dmg: 500,
       critDmg: 750,
     },

@@ -5,6 +5,8 @@ import {
 } from 'semantic-ui-react';
 // -----Images ----- //
 import LootImage from '../../Static/Modals/Loot.png';
+// hocs
+import withHover from '../../hocs/withHover';
 
 const LootEventModal = ({
   onChangeLoot, onClickLoot, inputValue, setCurrentModalEvent,
@@ -61,4 +63,4 @@ const LootEventModal = ({
   );
 };
 
-export default LootEventModal;
+export default withHover(LootEventModal);

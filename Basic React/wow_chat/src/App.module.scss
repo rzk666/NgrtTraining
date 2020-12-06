@@ -4,8 +4,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3a4b4f;
+  background-color: #212226;
   flex-direction: column; 
+  .instructions_btn{
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    transition: 0.9s ease-in;
+    &:hover{
+      height: 38px;
+      width: 155px;
+    }
+  }
   .header{
     margin-bottom: 50px;
     font-size: 35px;

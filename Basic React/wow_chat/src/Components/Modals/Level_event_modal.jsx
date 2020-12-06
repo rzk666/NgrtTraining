@@ -5,6 +5,8 @@ import {
 } from 'semantic-ui-react';
 // -----Images----- //
 import LevelUpImage from '../../Static/Modals/Level Up.png';
+// hocs
+import withHover from '../../hocs/withHover';
 
 const LevelEventModal = ({
   onChangeLvl, onClickLvl, inputValue, setCurrentModalEvent,
@@ -61,4 +63,4 @@ const LevelEventModal = ({
   );
 };
 
-export default LevelEventModal;
+export default withHover(LevelEventModal);

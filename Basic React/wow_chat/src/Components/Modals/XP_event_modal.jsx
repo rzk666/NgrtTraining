@@ -5,6 +5,8 @@ import {
 } from 'semantic-ui-react';
 // -----Images----- //
 import XPImage from '../../Static/Modals/XP.png';
+// hocs
+import withHover from '../../hocs/withHover';
 
 const XPEventModal = ({
   onChangeXP, onClickXP, inputValue, setCurrentModalEvent,
@@ -65,4 +67,4 @@ const XPEventModal = ({
   );
 };
 
-export default XPEventModal;
+export default withHover(XPEventModal);

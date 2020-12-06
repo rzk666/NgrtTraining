@@ -5,6 +5,8 @@ import {
 } from 'semantic-ui-react';
 // -----Images----- //
 import AbilityImage from '../../Static/Modals/Ability.png';
+// hocs
+import withHover from '../../hocs/withHover';
 
 const AbilityEventModal = ({
   onChangeAbility, onClickAbility, inputValue, setCurrentModalEvent,
@@ -61,4 +63,4 @@ const AbilityEventModal = ({
   );
 };
 
-export default AbilityEventModal;
+export default withHover(AbilityEventModal);

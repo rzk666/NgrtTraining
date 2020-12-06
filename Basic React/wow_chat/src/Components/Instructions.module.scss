@@ -1,0 +1,59 @@
+.modal_container{
+    background-color: #212226!important;
+    height: 600px;
+    animation: slideIn .6s ease-in;
+    .modal{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        padding: 20px;
+        flex-direction: column;
+        overflow: scroll;
+        color: white;
+        .close_btn{
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+            &:hover{
+                opacity: 1;
+            }
+            }
+        }
+        h1{
+            font-size: 35px;
+            margin-bottom: 40px;
+            min-height: 50px;
+            margin-top: 0;
+        }
+        p{
+            font-size: 17px;
+        }
+    }
+
+    @keyframes slideIn{
+        0%{
+            transform: skewX(-53deg) translateX(-1000px);
+            opacity: 0;
+        }
+        100%{
+            transform: skew(0deg);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOut{
+        0%{
+            transform: skewX(-53deg) translateX(-500px);
+            opacity: 0;
+        }
+        100%{
+            transform: skew(0deg);
+            opacity: 1;
+        }
+    }
+
+

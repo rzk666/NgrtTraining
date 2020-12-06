@@ -5,6 +5,18 @@ import styles from './General_chat.module.scss';
 
 const Message = ({ data, activePlayer }) => (
   <>
+    {data.currentChat === 'COMBAT' && (
+      <div className={styles.chat_event_container}>
+        <div
+          className={classNames(styles.chat_event,
+            {
+              [styles.player]: data.currentChat === 'COMBAT',
+            })}
+        >
+          {data.content}
+        </div>
+      </div>
+    )}
     {data.currentChat === 'XP' && (
       <div className={styles.chat_event_container}>
         <div
