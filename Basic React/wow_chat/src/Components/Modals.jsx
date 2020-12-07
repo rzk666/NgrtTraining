@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 // ---Styles--- //
 import styles from './Modals.module.scss';
@@ -8,7 +8,7 @@ import XPEventModal from './Modals/XP_event_modal';
 import LVLEventModal from './Modals/Level_event_modal';
 import AbilityEventModal from './Modals/Ability_event_modal';
 import LootEventModal from './Modals/Loot_event_modal';
-// --Consts & Dicts---//
+// ---Consts & Dicts---//
 import PLAYERS from '../Common/Players';
 import MONSTERS from '../Common/Monsters';
 
@@ -23,47 +23,75 @@ const Modals = ({
   // State
   const [currentModalEvent, setCurrentModalEvent] = useState('');
   const [combatWinner, setCombatWinner] = useState('');
+  const [currentMyActions, setMyActions] = useState([...myActionsChat]);
+  const [currentWHTM, setWHTM] = useState([...whatHappenedToMeChat]);
+  // Use Effect
+  useEffect(() => {
+    if (combatWinner) {
+      setMyActionsChat(currentMyActions);
+      setWHTMChat(currentWHTM);
+      const chatEventObj = {
+        content: combatWinner === 'Player' ? 'You won!!' : 'You have been defeated...',
+        currentChat: 'COMBAT',
+        type: 'message',
+      };
+      const newGeneralChatArray = [...generalChatData, chatEventObj];
+      addGeneralChatEvent(newGeneralChatArray);
+      setCombatWinner('');
+      setMyActions([]);
+      setWHTM([]);
+    }
+  }, [combatWinner]);
   // Functions
   const addNewXPEvent = () => {
-    const newXPEvent = {
-      content: currentModalEvent,
-      currentChat: 'XP',
-    };
-    const newArray = [...generalChatData, newXPEvent];
-    addGeneralChatEvent(newArray);
-    setCurrentModalEvent('');
+    if (currentModalEvent) {
+      const newXPEvent = {
+        content: currentModalEvent,
+        currentChat: 'XP',
+      };
+      const newArray = [...generalChatData, newXPEvent];
+      addGeneralChatEvent(newArray);
+      setCurrentModalEvent('');
+    }
   };
 
   const addNewLvlUpEvent = () => {
-    const newLvlEvent = {
-      content: currentModalEvent,
-      currentChat: 'LVL UP',
-    };
-    const newArray = [...generalChatData, newLvlEvent];
-    addGeneralChatEvent(newArray);
-    setCurrentModalEvent('');
+    if (currentModalEvent) {
+      const newLvlEvent = {
+        content: currentModalEvent,
+        currentChat: 'LVL UP',
+      };
+      const newArray = [...generalChatData, newLvlEvent];
+      addGeneralChatEvent(newArray);
+      setCurrentModalEvent('');
+    }
   };
 
   const addNewAbilityEvent = () => {
-    const newAbilityEvent = {
-      content: currentModalEvent,
-      currentChat: 'ABILITY',
-    };
-    const newArray = [...generalChatData, newAbilityEvent];
-    addGeneralChatEvent(newArray);
-    setCurrentModalEvent('');
+    if (currentModalEvent) {
+      const newAbilityEvent = {
+        content: currentModalEvent,
+        currentChat: 'ABILITY',
+      };
+      const newArray = [...generalChatData, newAbilityEvent];
+      addGeneralChatEvent(newArray);
+      setCurrentModalEvent('');
+    }
   };
 
   const addNewLootEvent = () => {
-    const newLootEvent = {
-      content: currentModalEvent,
-      currentChat: 'LOOT',
-    };
-    const newArray = [...generalChatData, newLootEvent];
-    addGeneralChatEvent(newArray);
-    setCurrentModalEvent('');
+    if (currentModalEvent) {
+      const newLootEvent = {
+        content: currentModalEvent,
+        currentChat: 'LOOT',
+      };
+      const newArray = [...generalChatData, newLootEvent];
+      addGeneralChatEvent(newArray);
+      setCurrentModalEvent('');
+    }
   };
-
+  
+  // Combat help functions
   const randomAbility = (abilityArray) => {
     const randomAbilityNum = Math.floor(Math.random() * (4 - 0 + 0)) + 0;
     const chosenAbility = abilityArray[randomAbilityNum];
@@ -72,56 +100,61 @@ const Modals = ({
     );
   };
 
+  const isCrit = () => !!Math.round(Math.random());
+
   const generateNewCombatEvent = () => {
     // Player stats
     let randomPlayerAbility = randomAbility(PLAYERS[0].abilities);
+    let isPlayerAbilityCrit = isCrit();
     let playerHp = PLAYERS[0].hp;
-    const newMyActionsArray = [...myActionsChat];
+    const newMyActionsArray = [...currentMyActions];
     // Monster stats
     let randomMonsterAbility = randomAbility(MONSTERS[0].abilities);
     let monsterHp = MONSTERS[0].hp;
-    const newMyWHTMArray = [...whatHappenedToMeChat];
-    while (playerHp && monsterHp > 0) {
+    let isMonsterAbilityCrit = isCrit();
+    const newMyWHTMArray = [...currentWHTM];
+    // Battle
+    while (playerHp > 0 && monsterHp > 0) {
       // Player actions
       const battleEventPlayer = {
         abilityName: randomPlayerAbility.name,
-        dmg: randomPlayerAbility.dmg,
-        isCrit: true,
+        dmg: isPlayerAbilityCrit ? randomPlayerAbility.critDmg : randomPlayerAbility.dmg,
+        isCrit: isPlayerAbilityCrit,
       };
       newMyActionsArray.push(battleEventPlayer);
       randomPlayerAbility = randomAbility(PLAYERS[0].abilities);
+      isPlayerAbilityCrit = isCrit();
       // Monster actions
       const battleEventMonster = {
         abilityName: randomMonsterAbility.name,
         dmg: randomMonsterAbility.dmg,
-        isCrit: true,
+        isCrit: isMonsterAbilityCrit,
       };
-      // Hp
-      playerHp -= randomMonsterAbility.dmg;
-      monsterHp -= randomPlayerAbility.dmg;
       newMyWHTMArray.push(battleEventMonster);
       randomMonsterAbility = randomAbility(MONSTERS[0].abilities);
-      if (randomMonsterAbility.dmg > playerHp) {
-        playerHp = 0;
-        setCombatWinner('Enemy');
-      } else if (randomPlayerAbility.dmg > monsterHp) {
-        monsterHp = 0;
-        setCombatWinner('Player');
-      }
+      isMonsterAbilityCrit = isCrit();
+      // Hp
+      monsterHp -= isPlayerAbilityCrit
+        ? randomPlayerAbility.critDmg
+        : randomPlayerAbility.dmg;
+      playerHp -= isMonsterAbilityCrit
+        ? randomMonsterAbility.critDmg
+        : randomMonsterAbility.dmg;
+      console.log('MONSTER HP');
+      console.log(monsterHp);
+      console.log('PLAYER HP');
+      console.log(playerHp);
     }
-    console.log(`player: ${playerHp}`);
-    console.log(`monster: ${monsterHp}`);
-    setMyActionsChat(newMyActionsArray);
-    setWHTMChat(newMyWHTMArray);
-    const chatEventObj = {
-      content: combatWinner === 'Player' ? 'You won!!' : 'You have been defeated...',
-      currentChat: 'COMBAT',
-      type: 'message',
-    };
-    const newGeneralChatArray = [...generalChatData, chatEventObj];
-    addGeneralChatEvent(newGeneralChatArray);
+    setMyActions(newMyActionsArray);
+    setWHTM(newMyWHTMArray);
+    if (randomPlayerAbility.dmg > monsterHp) {
+      monsterHp = 0;
+      setCombatWinner('Player');
+    } else if (randomMonsterAbility.dmg > playerHp) {
+      playerHp = 0;
+      setCombatWinner('Enemy');
+    }
   };
-  console.log(combatWinner);
 
   return (
     <div className={styles.event_modal_container}>

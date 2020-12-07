@@ -4,8 +4,8 @@ const MONSTERS = [{
   abilities: [
     {
       name: 'Skull Basher',
-      dmg: 500,
-      critDmg: 750,
+      dmg: 750,
+      critDmg: 1000,
     },
     {
       name: 'Splitter',
@@ -19,8 +19,8 @@ const MONSTERS = [{
     },
     {
       name: 'Monastry',
-      dmg: 800,
-      critDmg: 1200,
+      dmg: 1000,
+      critDmg: 1500,
     },
   ],
 }];

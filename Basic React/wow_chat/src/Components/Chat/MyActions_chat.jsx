@@ -24,11 +24,6 @@ const CombatMessage = ({ data }) => (
         &nbsp;
       </div>
     )}
-    {data.isOverkill === true && (
-    <div className={styles.combat_event}>
-      (Overkill)
-    </div>
-    )}
   </div>
 
 );

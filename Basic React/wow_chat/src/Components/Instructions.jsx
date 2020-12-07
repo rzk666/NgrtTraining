@@ -26,16 +26,17 @@ const InstructionsModal = ({ isInstModalOpen, setIsInstModalOpen }) => {
           }}
         />
         <h1>Instructions</h1>
-        <div>
+        <div style={{paddingLeft: '30px'}}>
           <p>Welcome to my World Of Warcraft chat simulator!</p>
           <p>To start sending message press the "Enter" key.</p>
-          <p>In order to send your message press the "Enter" key again</p>
+          <p>In order to send your message press the "Enter" key again.</p>
 
           <p>
             You can switch channels in the chat by typing "/"
-            and the channel name, Your options are:
+            and the channel name.
             {' '}
           </p>
+          <p>Your options are:</p>
           <p>* /Say</p>
           <p style={{ color: 'red' }}>* /trade</p>
           <p style={{ color: '#FFB22A' }}>* /yell</p>
@@ -44,6 +45,13 @@ const InstructionsModal = ({ isInstModalOpen, setIsInstModalOpen }) => {
           <p>
             Also, you can add custom events to your chat such as
             loot, XP, ability and level up.
+          </p>
+          <h3>Combat:</h3>
+          <p>You can generate a quick combat with an enemy by pressing the "Combat" button.</p>
+          <p>When the button is pressed you will see in the general chat the battle outcome.</p>
+          <p>
+            If you want to see your actions and your enemy's actions you can switch
+            to the Combat tab, and switch between "My Actions" and "What Happened To Me".
           </p>
         </div>
         <h2 style={{ marginTop: '50px' }}>Enjoy!</h2>

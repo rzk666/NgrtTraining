@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 // ---Styles---//
 import styles from './App.module.scss';
 // ---Componenets---//
